@@ -60,7 +60,9 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
 
+
         case ClearCommand.COMMAND_WORD:
+            case ClearCommand.COMMAND_INITIAL:
             return new ClearCommand();
 
         case FindCommand.COMMAND_WORD:
@@ -84,7 +86,8 @@ public class AddressBookParser {
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
 
-        default:
+
+            default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }

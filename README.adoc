@@ -1,4 +1,6 @@
 = Something Daily
+
+image:https://api.codacy.com/project/badge/Grade/bf349f6d588a43c3a800546731a3a5e6[link="https://app.codacy.com/app/arty9/main?utm_source=github.com&utm_medium=referral&utm_content=CS2113-AY1819S1-T09-2/main&utm_campaign=Badge_Grade_Settings"]
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.org/CS2113-AY1819S1-T09-2/main[image:https://travis-ci.org/CS2113-AY1819S1-T09-2/main.svg?branch=master[Build Status]]

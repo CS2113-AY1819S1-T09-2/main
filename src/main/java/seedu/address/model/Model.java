@@ -3,8 +3,8 @@ package seedu.address.model;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.person.Person;
 import seedu.address.model.expenditureinfo.Expenditure;
+import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -38,8 +38,7 @@ public interface Model {
     void addPerson(Person person);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * Adds the given expenditure.
      */
     void addExpenditure(Expenditure expenditure);
 

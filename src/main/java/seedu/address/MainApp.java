@@ -26,6 +26,8 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyExpenditureTracker;
+import seedu.address.model.ReadOnlyTodoList;
+import seedu.address.model.TodoList;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.AddressBookStorage;
@@ -90,6 +92,7 @@ public class MainApp extends Application {
         Optional<ReadOnlyAddressBook> addressBookOptional;
         //Optional<ReadOnlyExpenditureTracker> expenditureTrackerOptional;
         ReadOnlyAddressBook initialData;
+        ReadOnlyTodoList initialTodoList = new TodoList();
         ReadOnlyExpenditureTracker initialExpenditureTracker = new ExpenditureTracker();
         try {
             addressBookOptional = storage.readAddressBook();
@@ -105,7 +108,7 @@ public class MainApp extends Application {
             initialData = new AddressBook();
         }
 
-        return new ModelManager(initialData, initialExpenditureTracker, userPrefs);
+        return new ModelManager(initialData, initialTodoList, initialExpenditureTracker, userPrefs);
     }
 
     private void initLogging(Config config) {

@@ -49,10 +49,10 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private MenuItem helpMenuItem;
-/*
+    /*
     @FXML
     private StackPane personListPanelPlaceholder;
-*/
+    */
     @FXML
     private StackPane taskListPanelPlaceholder;
 
@@ -125,10 +125,10 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         browserPanel = new BrowserPanel();
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
-/*
+        /*
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
-*/
+        */
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
         taskListPanelPlaceholder.getChildren().add(taskListPanel.getRoot());
 
@@ -193,11 +193,11 @@ public class MainWindow extends UiPart<Stage> {
     private void handleExit() {
         raise(new ExitAppRequestEvent());
     }
-/*
+    /*
     public PersonListPanel getPersonListPanel() {
         return personListPanel;
     }
-*/
+    */
     public TaskListPanel getTaskListPanel() {
         return taskListPanel;
     }

@@ -208,14 +208,9 @@ image::ModelClassDiagram.png[width="800"]
 The `Model`,
 
 * stores a `UserPref` object that represents the user's preferences.
-* stores the Address Book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the Todo List and Expenditure Tracker data.
+* exposes an unmodifiable `ObservableList<Task>` and `ObservableList<Expenditure>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
-[NOTE]
-As a more OOP model, we can store a `Tag` list in `Address Book`, which `Person` can reference. This would allow `Address Book` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object. An example of how such a model may look like is given below. +
- +
-image:ModelClassBetterOopDiagram.png[width="800"]
 
 [[Design-Storage]]
 === Storage component
@@ -228,7 +223,7 @@ image::StorageClassDiagram.png[width="800"]
 The `Storage` component,
 
 * can save `UserPref` objects in json format and read it back.
-* can save the Address Book data in xml format and read it back.
+* can save the Todo List and Expenditure Tracker data in xml format and read it back.
 
 [[Design-Commons]]
 === Common classes
@@ -885,17 +880,17 @@ To-do list
 
 *MSS*
 
-1.  User enters `add` command and keys in the task
+1.  User enters `TDL_add` command and keys in the task
 2.  To-do list shows the task entered in the list
 
 [discrete]
-=== Use case 2:Edit or Update task
+=== Use case 2: Edit or Update task
 *System:*
 To-do list
 
 *MSS*
 
-1.  User enters `edit` command followed by index number
+1.  User enters `TDL_edit` command followed by index number
 2.  To-do list confirms task is present in the list
 3.  User enter relevant contents
 4.  To-do list shows the updated task in the list
@@ -913,7 +908,7 @@ To-do list
 
 *MSS*
 
-1. User enters `delete` command followed by index number
+1. User enters `TDL_delete` command followed by index number
 2. To-do list confirms task is present and deletes the task
 
 *Extensions*
@@ -929,7 +924,7 @@ To-do list
 
 *MSS*
 
-1. User enters `sort by mod` command
+1. User enters `TDL_sort by mod` command
 2. To-do list shows a sorted list of tasks grouped by modules
 
 [discrete]
@@ -939,7 +934,7 @@ To-do list
 
 *MSS*
 
-1. User enters `sort by ddl` command
+1. User enters `TDL_sort by ddl` command
 2. To-do list shows the all uncompleted modules sorted by deadlines, the task with latest deadline is the first task
 
 [discrete]
@@ -949,7 +944,7 @@ To-do list
 
 *MSS*
 
-1. User enters `sort by impt` command
+1. User enters `TDL_sort by impt` command
 2. To-do list shows a sorted list of tasks grouped by priority level in descending order
 
 [discrete]
@@ -959,7 +954,7 @@ To-do list
 
 *MSS*
 
-1. User enters `view completed` command
+1. User enters `TDL_view completed` command
 2. To-do list shows a list of tasks that has been marked as completed
 
 [discrete]
@@ -969,7 +964,7 @@ To-do list
 
 *MSS*
 
-1. User enters `view uncompleted` command
+1. User enters `TDL_view uncompleted` command
 2. To-do list shows a list of tasks that have not been marked as completed
 
 [discrete]
@@ -979,7 +974,7 @@ To-do list
 
 *MSS*
 
-1. User enters `complete` command followed by index number
+1. User enters `TDL_complete` command followed by index number
 2. To-do list marks task as completed and moves the task to a separate list of completed tasks
 
 *Extensions*
@@ -989,7 +984,23 @@ To-do list
      2b1. To-do list shows an error message
 
 [discrete]
-=== Use case 10: Receiving reminders for a task
+=== Use case 10: Marking a task as uncompleted
+*System:*
+To-do list
+
+*MSS*
+
+1. User enters `TDL_uncomplete` command followed by index number
+2. To-do list marks task as uncompleted and moves the task to a separate list of uncompleted tasks
+
+*Extensions*
+
+   2a. The list is empty.
+   2b. The given index is invalid
+     2b1. To-do list shows an error message
+
+[discrete]
+=== Use case 11: Receiving reminders for a task
 *System:*
 To-do list
 
@@ -999,7 +1010,7 @@ To-do list
 2. User receives and acknowledges the reminder
 
 [discrete]
-=== Use case 11: Add expenditure / income
+=== Use case 12: Add expenditure / income
 *System:*
 Expenditure Tracker & Calendar
 
@@ -1013,7 +1024,7 @@ Expenditure Tracker & Calendar
 6. Expenditure Tracker record and display the income / outcome on calendar
 
 [discrete]
-=== Use case 12: Check expenditure / income status
+=== Use case 13: Check expenditure / income status
 *System:*
 Expenditure Tracker & Calendar
 
@@ -1046,7 +1057,7 @@ Windows, Linux, Unix, OS-X
 *Things* +
 A to-do list mobile application
 
-Author: Ran Tian (arty9)
+Author: Ran Tian
 
 Pros:
 

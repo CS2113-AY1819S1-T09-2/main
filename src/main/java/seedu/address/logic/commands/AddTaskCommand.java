@@ -3,8 +3,8 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -14,7 +14,7 @@ import seedu.address.model.task.Task;
 /**
  * Adds a task to the to-do list.
  */
-public class TDLAddCommand extends Command {
+public class AddTaskCommand extends Command {
 
     public static final String COMMAND_WORD = "TDL_add";
 
@@ -38,7 +38,7 @@ public class TDLAddCommand extends Command {
     /**
      * Creates an TDLAddCommand to add the specified {@code Task}
      */
-    public TDLAddCommand(Task task) {
+    public AddTaskCommand(Task task) {
         requireNonNull(task);
         toAdd = task;
     }
@@ -52,14 +52,14 @@ public class TDLAddCommand extends Command {
         }
 
         model.addTask(toAdd);
-        model.commitAddressBook();
+        model.commitTodoList();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof TDLAddCommand // instanceof handles nulls
-                && toAdd.equals(((TDLAddCommand) other).toAdd));
+                || (other instanceof AddTaskCommand // instanceof handles nulls
+                && toAdd.equals(((AddTaskCommand) other).toAdd));
     }
 }

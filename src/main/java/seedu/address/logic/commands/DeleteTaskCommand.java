@@ -14,7 +14,7 @@ import seedu.address.model.task.Task;
 /**
  * Deletes a person identified using it's displayed index from the address book.
  */
-public class TDLDeleteCommand extends Command {
+public class DeleteTaskCommand extends Command {
 
     public static final String COMMAND_WORD = "TDL_delete";
     public static final String COMMAND_ALIAS = "d";
@@ -28,7 +28,7 @@ public class TDLDeleteCommand extends Command {
 
     private final Index targetIndex;
 
-    public TDLDeleteCommand(Index targetIndex) {
+    public DeleteTaskCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
@@ -43,14 +43,14 @@ public class TDLDeleteCommand extends Command {
 
         Task taskToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteTask(taskToDelete);
-        model.commitAddressBook();
+        model.commitTodoList();
         return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof TDLDeleteCommand // instanceof handles nulls
-                && targetIndex.equals(((TDLDeleteCommand) other).targetIndex)); // state check
+                || (other instanceof DeleteTaskCommand // instanceof handles nulls
+                && targetIndex.equals(((DeleteTaskCommand) other).targetIndex)); // state check
     }
 }

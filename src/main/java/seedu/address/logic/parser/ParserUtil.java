@@ -57,7 +57,13 @@ public class ParserUtil {
         return new Name(trimmedName);
     }
 
-    public static TaskName parseTask(String name) throws ParseException {
+    /**
+     * Parses a {@code String name} into a {@code TaskName}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static TaskName parseTaskName(String name) throws ParseException {
         requireNonNull(name);
         String trimmedName = name.trim();
         if (!TaskName.isValidName(trimmedName)) {
@@ -66,7 +72,13 @@ public class ParserUtil {
         return new TaskName(trimmedName);
     }
 
-    public static TaskModule parseModule(String module) throws ParseException {
+    /**
+     * Parses a {@code String module} into a {@code TaskModule}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code module} is invalid.
+     */
+    public static TaskModule parseTaskModule(String module) throws ParseException {
         requireNonNull(module);
         String trimmedModule = module.trim();
         if (!TaskModule.isValidModule(trimmedModule)) {
@@ -75,6 +87,12 @@ public class ParserUtil {
         return new TaskModule(trimmedModule);
     }
 
+    /**
+     * Parses a {@code String date} into a {@code TaskDate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code date} is invalid.
+     */
     public static TaskDate parseTaskDate(String date) throws ParseException {
         requireNonNull(date);
         String trimmedDate = date.trim();
@@ -84,7 +102,13 @@ public class ParserUtil {
         return new TaskDate(trimmedDate);
     }
 
-    public static TaskPriority parsePriority(String priority) throws ParseException {
+    /**
+     * Parses a {@code String priority} into a {@code TaskPriority}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code priority} is invalid.
+     */
+    public static TaskPriority parseTaskPriority(String priority) throws ParseException {
         requireNonNull(priority);
         String trimmedPriority = priority.trim();
         if (!TaskPriority.isValidPriority(trimmedPriority)) {

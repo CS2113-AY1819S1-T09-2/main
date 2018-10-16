@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.commons.events.model.TodoListChangedEvent;
 import seedu.address.model.expenditureinfo.Expenditure;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
@@ -21,38 +22,37 @@ import seedu.address.model.task.Task;
  * Represents the in-memory model of the address book data.
  */
 public class ModelManager extends ComponentManager implements Model {
+
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final VersionedAddressBook versionedAddressBook;
+    private final VersionedTodoList versionedTodoList;
     private final VersionedExpenditureTracker versionedExpenditureTracker;
     private final FilteredList<Person> filteredPersons;
-
-    private final FilteredList<Expenditure> filteredExpenditures;
-
     private final FilteredList<Task> filteredTasks;
+    private final FilteredList<Expenditure> filteredExpenditures;
 
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook,
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyTodoList todoList,
                         ReadOnlyExpenditureTracker expenditureTracker, UserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, expenditureTracker, userPrefs);
+        requireAllNonNull(addressBook, todoList, expenditureTracker, userPrefs);
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
+        versionedTodoList = new VersionedTodoList(todoList);
         versionedExpenditureTracker = new VersionedExpenditureTracker(expenditureTracker);
         filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
-
+        filteredTasks = new FilteredList<>(versionedTodoList.getTaskList());
         filteredExpenditures = new FilteredList<>(versionedExpenditureTracker.getExpenditureList());
-
-        filteredTasks = new FilteredList<>(versionedAddressBook.getTaskList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new ExpenditureTracker(), new UserPrefs());
+        this(new AddressBook(), new TodoList(), new ExpenditureTracker(), new UserPrefs());
     }
 
     @Override
@@ -67,6 +67,11 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public ReadOnlyTodoList getTodoList() {
+        return versionedTodoList;
+    }
+
+    @Override
     public ReadOnlyExpenditureTracker getExpenditureTracker() {
         return versionedExpenditureTracker;
     }
@@ -76,6 +81,11 @@ public class ModelManager extends ComponentManager implements Model {
         raise(new AddressBookChangedEvent(versionedAddressBook));
     }
 
+    /** Raises an event to indicate the model has changed */
+    private void indicateTodoListChanged() {
+        raise(new TodoListChangedEvent(versionedTodoList));
+    }
+
     @Override
     public boolean hasPerson(Person person) {
         requireNonNull(person);
@@ -83,15 +93,15 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public boolean hasTask(Task task) {
+        requireNonNull(task);
+        return versionedTodoList.hasTask(task);
+    }
+
+    @Override
     public boolean hasExpenditure(Expenditure expenditure) {
         requireNonNull(expenditure);
         return versionedExpenditureTracker.hasExpenditure(expenditure);
-    }
-    
-    @Override
-    public boolean hasTask(Task task) {
-        requireNonNull(task);
-        return versionedAddressBook.hasTask(task);
     }
 
     @Override
@@ -101,21 +111,14 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void deleteExpenditure(Expenditure target) {
-        versionedExpenditureTracker.removeExpenditure(target);
-    }
-    
-    @Override
     public void deleteTask(Task target) {
-        versionedAddressBook.removeTask(target);
-        indicateAddressBookChanged();
+        versionedTodoList.removeTask(target);
+        indicateTodoListChanged();
     }
 
     @Override
-    public void addTask(Task task) {
-        versionedAddressBook.addTask(task);
-        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
-        indicateAddressBookChanged();
+    public void deleteExpenditure(Expenditure target) {
+        versionedExpenditureTracker.removeExpenditure(target);
     }
 
     @Override
@@ -123,6 +126,13 @@ public class ModelManager extends ComponentManager implements Model {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
+    }
+
+    @Override
+    public void addTask(Task task) {
+        versionedTodoList.addTask(task);
+        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
+        indicateTodoListChanged();
     }
 
     @Override
@@ -141,18 +151,18 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public void updateTask(Task target, Task editedTask) {
+        requireAllNonNull(target, editedTask);
+
+        versionedTodoList.updateTask(target, editedTask);
+        indicateTodoListChanged();
+    }
+
+    @Override
     public void updateExpenditure(Expenditure target, Expenditure editedExpenditure) {
         requireAllNonNull(target, editedExpenditure);
 
         versionedExpenditureTracker.updateExpenditure(target, editedExpenditure);
-        indicateAddressBookChanged();
-    }
-  
-    @Override
-    public void updateTask(Task target, Task editedTask) {
-        requireAllNonNull(target, editedTask);
-
-        versionedAddressBook.updateTask(target, editedTask);
         indicateAddressBookChanged();
     }
 
@@ -173,31 +183,43 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public ObservableList<Expenditure> getFilteredExpenditureList() {
-        return FXCollections.unmodifiableObservableList(filteredExpenditures);
+    public void updateFilteredPersonList(Predicate<Person> predicate) {
+        requireNonNull(predicate);
+        filteredPersons.setPredicate(predicate);
     }
-  
+
+    //=========== Filtered Task List Accessors =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Task} backed by the internal list of
+     * {@code versionedTodoList}
+     */
     @Override
     public ObservableList<Task> getFilteredTaskList() {
         return FXCollections.unmodifiableObservableList(filteredTasks);
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
+    public void updateFilteredTaskList(Predicate<Task> predicate) {
         requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        filteredTasks.setPredicate(predicate);
     }
-  
+
+    //=========== Filtered Expenditure List Accessors =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Expenditure} backed by the internal list of
+     * {@code versionedExpenditureTracker}
+     */
+    @Override
+    public ObservableList<Expenditure> getFilteredExpenditureList() {
+        return FXCollections.unmodifiableObservableList(filteredExpenditures);
+    }
+
     @Override
     public void updateFilteredExpenditureList(Predicate<Expenditure> predicate) {
         requireNonNull(predicate);
         filteredExpenditures.setPredicate(predicate);
-    }
-
-    @Override
-    public void updateFilteredTaskList(Predicate<Task> predicate) {
-        requireNonNull(predicate);
-        filteredTasks.setPredicate(predicate);
     }
 
     //=========== Undo/Redo =================================================================================
@@ -230,6 +252,33 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public boolean canUndoTodoList() {
+        return versionedTodoList.canUndo();
+    }
+
+    @Override
+    public boolean canRedoTodoList() {
+        return versionedTodoList.canRedo();
+    }
+
+    @Override
+    public void undoTodoList() {
+        versionedTodoList.undo();
+        indicateTodoListChanged();
+    }
+
+    @Override
+    public void redoTodoList() {
+        versionedTodoList.redo();
+        indicateTodoListChanged();
+    }
+
+    @Override
+    public void commitTodoList() {
+        versionedTodoList.commit();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         // short circuit if same object
         if (obj == this) {
@@ -243,8 +292,8 @@ public class ModelManager extends ComponentManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return versionedAddressBook.equals(other.versionedAddressBook)
-                && filteredPersons.equals(other.filteredPersons);
+        return versionedTodoList.equals(other.versionedTodoList)
+                && filteredTasks.equals(other.filteredTasks);
     }
 
 }

@@ -9,7 +9,7 @@ import seedu.address.model.Model;
 /**
  * Lists all persons in the address book to the user.
  */
-public class TDLViewCommand extends Command {
+public class ViewTaskCommand extends Command {
 
     public static final String COMMAND_WORD = "TDL_view";
 

@@ -10,6 +10,7 @@ import static seedu.address.testutil.TypicalPersons.CARL;
 import static seedu.address.testutil.TypicalPersons.ELLE;
 import static seedu.address.testutil.TypicalPersons.FIONA;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalTasks.getTypicalTodoList;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,9 +27,9 @@ import seedu.address.model.person.NameContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(),
+    private Model model = new ModelManager(getTypicalAddressBook(), getTypicalTodoList(),
             getTypicalExpenditureTracker(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(),
+    private Model expectedModel = new ModelManager(getTypicalAddressBook(), getTypicalTodoList(),
             getTypicalExpenditureTracker(), new UserPrefs());
     private CommandHistory commandHistory = new CommandHistory();
 

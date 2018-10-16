@@ -33,8 +33,8 @@ image::Ui.png[width="790"]
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
-* **`TDL add`**`t/Tutorial 5 m/CS2101 d/12-09 p/1` : adds a task named `Tutorial 5` to the To-do List.
-* **`TDL delete`**`3` : deletes the 3rd task in the To-do List
+* **`TDL_add`**`t/Tutorial 5 m/CS2101 d/12-09 p/1` : adds a task named `Tutorial 5` to the To-do List.
+* **`TDL_delete`**`3` : deletes the 3rd task in the To-do List
 * *`exit`* : exits the app
 
 .  Refer to <<Features>> for details of each command.
@@ -46,7 +46,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 *Command Format*
 
 * Our product will be divided to two sub-parts which are called `To-do List` and `Expenditure Tracker`. For each part, do remember to add the domain command `TDL` (which represents To-do List) or `ET` (which represents Expenditure Tracker). E.g. in `ET check status`, `ET` is the domain command that leads you to Expenditure Tracker.
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `TDL add t/TASK`, `TASK` is a parameter which can be used as `add t/Homework`.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `TDL_add t/TASK`, `TASK` is a parameter which can be used as `add t/Homework`.
 * Items in square brackets are optional e.g. `t/TASK [d/DATE]` can be used as `t/Homework d/12-09` or as `t/Homework`.
 * Parameters can be in any order e.g. if the command specifies `t/TASK m/MODULE`, `m/MODULE t/TASK` is also acceptable.
 ====
@@ -56,10 +56,10 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 Shows a list of commands +
 Format: `help`
 
-=== Adding a task: `TDL add`
+=== Adding a task: `TDL_add`
 
 Adds a task to the to-do list +
-Format: `TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]`
+Format: `TDL_add t/TASK m/MODULE [d/DATE] [p/PRIORITY]`
 
 ****
 * The format for `m/MODULE` tag is controlled by the list of modules availble in the application. Hence, only valid NUS module codes are allowed.
@@ -69,12 +69,12 @@ Format: `TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]`
 
 Examples:
 
-* `TDL add t/Tutorial 5 m/CS2101 d/12-09 p/1`
+* `TDL_add t/Tutorial 5 m/CS2101 d/12-09 p/1`
 
-=== Editing a task : `TDL edit`
+=== Editing a task : `TDL_edit`
 
 Edits an existing task in the to-do list. +
-Format: `TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]`
+Format: `TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]`
 
 ****
 * Edits the task at the specified `INDEX`. The index refers to the index number shown in the displayed uncompleted tasks list. The index *must be a positive integer* 1, 2, 3, ...
@@ -85,15 +85,15 @@ Format: `TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]`
 
 Examples:
 
-* `TDL edit 1 t/Tutorial 2 m/CS2113` +
+* `TDL_edit 1 t/Tutorial 2 m/CS2113` +
 Edits the task name and module code of the 1st task to be `Tutorial 2` and `CS2113` respectively.
-* `TDL edit 2 t/Tutorial 2 d/ p/` +
+* `TDL_edit 2 t/Tutorial 2 d/ p/` +
 Edits the task name of the 2nd task to be `Tutorial 2` and clears all existing deadlines and priority tags associated with this task.
 
-=== Deleting a task : `TDL delete`
+=== Deleting a task : `TDL_delete`
 
 Deletes the specified task from the to-do list. +
-Format: `TDL delete INDEX`
+Format: `TDL_delete INDEX`
 
 ****
 * Deletes the task at the specified `INDEX`.
@@ -103,15 +103,15 @@ Format: `TDL delete INDEX`
 
 Examples:
 
-* `TDL delete 2` +
+* `TDL_delete 2` +
 Deletes the 2nd task in the to-do list.
-* `TDL delete 1` +
+* `TDL_delete 1` +
 Deletes the 1st task in the to-do list.
 
-=== Completing a task : `TDL complete`
+=== Marking a task as completed: `TDL_complete`
 
-Mark a task in the to-do list as completed. +
-Format: `TDL complete INDEX`
+Marks the specified task in the to-do list as completed. +
+Format: `TDL_complete INDEX`
 
 ****
 * Mark the task at the specified `INDEX` as `completed`.
@@ -121,30 +121,46 @@ Format: `TDL complete INDEX`
 
 Examples:
 
-* `TDL complete 3` +
+* `TDL_complete 3` +
 The 3rd task in the to-do list is now marked as completed and will be moved to the _completed tasks_ list.
 
-=== View all tasks : `TDL view`
+=== Marking a task as uncompleted: `TDL_uncomplete`
+
+Marks the specific task in the to-do list as uncompleted. +
+Format: `TDL_uncomplete INDEX`
+
+****
+* Mark the task at the specified `INDEX` as `uncompleted`.
+* The index refers to the index number shown in the displayed completed tasks list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Examples:
+
+* `TDL_uncomplete 3` +
+The 3rd task in the to-do list is now marked as uncompleted and will be moved to the _uncompleted tasks_ list.
+
+=== View all tasks : `TDL_view`
 
 Shows a list of uncompleted or completed tasks in the to-do list. +
-Format: `TDL view PARAMETER`
+Format: `TDL_view PARAMETER`
 
 ****
 * PARAMETER is either `completed` or `uncompleted`.
 * The default view for the todo list is _uncompleted tasks_.
-* Performing `TDL view uncompleted` on to-do list with the list already at _uncompleted tasks_ will not result in any changes. The same is applied to _completed tasks_ list with `TDL view completed` command.
+* Performing `TDL_view uncompleted` on to-do list with the list already at _uncompleted tasks_ will not result in any changes. The same is applied to _completed tasks_ list with `TDL_view completed` command.
 * The GUI should allow the user to understand which list they are currently looking at.
 ****
 
 Examples:
 
-* `TDL view completed` +
+* `TDL_view completed` +
 The list is now populated with tasks marked as completed.
 
-=== Sort all tasks listed : `TDL sort`
+=== Sort all tasks listed : `TDL_sort`
 
 Sorts and displays the to-do list by a certain tag. +
-Format: `TDL sort by PARAMETER`
+Format: `TDL_sort by PARAMETER`
 
 ****
 * PARAMETER is either `mod` for module, `ddl` for deadline or `impt` for importance/priority.
@@ -153,8 +169,18 @@ Format: `TDL sort by PARAMETER`
 
 Examples:
 
-* `TDL sort by deadline` +
+* `TDL_sort by deadline` +
 The tasks are now sorted by deadlines, where tasks without deadlines are at the bottom of the list.
+
+=== Listing entered commands : `history`
+
+Lists all the commands that you have entered in reverse chronological order. +
+Format: `history`
+
+[NOTE]
+====
+Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
+====
 
 === Undoing previous command : `undo`
 
@@ -168,9 +194,9 @@ Undoable commands: those commands that modify the application's content (`add`, 
 
 Examples:
 
-* `TDL complete 3` +
-`TDL view completed` +
-`undo` (reverses the `TDL complete 3` command) +
+* `TDL_complete 3` +
+`TDL_view completed` +
+`undo` (reverses the `TDL_complete 3` command) +
 
 === Redoing the previously undone command : `redo`
 
@@ -179,9 +205,9 @@ Format: `redo`
 
 Examples:
 
-* `TDL complete 3` +
-`undo` (reverses the `TDL complete 3` command) +
-`redo` (reapplies the `TDL complete 3` command) +
+* `TDL_complete 3` +
+`undo` (reverses the `TDL_complete 3` command) +
+`redo` (reapplies the `TDL_complete 3` command) +
 
 === Exiting the program : `exit`
 
@@ -202,13 +228,15 @@ There is no need to save manually.
 
 == Command Summary
 
-* *Add* `TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]`
-* *Complete* : `TDL complete INDEX`
-* *Delete* : `TDL delete INDEX`
-* *Edit* : `TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]`
-* *Sort* : `TDL sort by PARAMETER`
+* *View* : `TDL_view PARAMETER`
+* *Add* `TDL_add t/TASK m/MODULE [d/DATE] [p/PRIORITY]`
+* *Edit* : `TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]`
+* *Delete* : `TDL_delete INDEX`
+* *Complete* : `TDL_complete INDEX`
+* *Uncomplete* : `TDL_uncomplete INDEX`
+* *Sort* : `TDL_sort by PARAMETER`
 * *Help* : `help`
-* *Exit* : `exit`
-* *View* : `TDL view PARAMETER`
+* *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
+* *Exit* : `exit`

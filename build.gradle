@@ -126,7 +126,7 @@ nonGuiTests.dependsOn test
 task(allTests)
 
 // `allTests` implies both `guiTests` and `nonGuiTests`
-allTests.dependsOn guiTests
+//allTests.dependsOn guiTests
 allTests.dependsOn nonGuiTests
 
 test {

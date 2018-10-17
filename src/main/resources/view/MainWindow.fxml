@@ -59,6 +59,13 @@
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
           </StackPane>
+
+          <VBox fx:id="expenditureList" minWidth="340" prefWidth="340" SplitPane.resizableWithParent="false">
+            <padding>
+              <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <StackPane fx:id="expenditureListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+          </VBox>
         </SplitPane>
 
         <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />

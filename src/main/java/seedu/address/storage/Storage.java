@@ -9,6 +9,7 @@ import seedu.address.commons.events.model.TodoListChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyExpenditureTracker;
 import seedu.address.model.ReadOnlyTodoList;
 import seedu.address.model.UserPrefs;
 
@@ -28,6 +29,9 @@ public interface Storage extends AddressBookStorage, TodoListStorage, UserPrefsS
 
     @Override
     Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException;
+
+    @Override
+    Optional<ReadOnlyExpenditureTracker> readExpenditureTracker() throws DataConversionException, IOException;
 
     @Override
     void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException;

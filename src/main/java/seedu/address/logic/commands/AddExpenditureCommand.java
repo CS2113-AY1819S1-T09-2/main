@@ -15,7 +15,7 @@ import seedu.address.model.expenditureinfo.Expenditure;
  */
 public class AddExpenditureCommand extends Command {
 
-    public static final String COMMAND_WORD = "ET add";
+    public static final String COMMAND_WORD = "ET_add";
     public static final String COMMAND_ALIAS = "a";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expenditure to the expenditure tracker. "
@@ -24,7 +24,7 @@ public class AddExpenditureCommand extends Command {
             + PREFIX_MONEY + "MONEY "
             + PREFIX_CATEGORY + "CATEGORY "
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_DATE + "25/12/2017 "
+            + PREFIX_DATE + "25-12-2017 "
             + PREFIX_MONEY + "1000 "
             + PREFIX_CATEGORY + "Food ";
 

@@ -14,6 +14,7 @@ import seedu.address.commons.events.model.TodoListChangedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyExpenditureTracker;
 import seedu.address.model.ReadOnlyTodoList;
 import seedu.address.model.UserPrefs;
 
@@ -62,6 +63,11 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
+    public Path getExpenditureTrackerFilePath() {
+        return addressBookStorage.getExpenditureTrackerFilePath();
+    }
+
+    @Override
     public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
         return readAddressBook(addressBookStorage.getAddressBookFilePath());
     }
@@ -70,6 +76,18 @@ public class StorageManager extends ComponentManager implements Storage {
     public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
         logger.fine("Attempting to read AB data from file: " + filePath);
         return addressBookStorage.readAddressBook(filePath);
+    }
+
+    @Override
+    public Optional<ReadOnlyExpenditureTracker> readExpenditureTracker() throws DataConversionException, IOException {
+        return readExpenditureTracker(addressBookStorage.getExpenditureTrackerFilePath());
+    }
+
+    @Override
+    public Optional<ReadOnlyExpenditureTracker> readExpenditureTracker(Path expenditureFilePath)
+            throws DataConversionException, IOException {
+        logger.fine("Attempting to read data from file: " + expenditureFilePath);
+        return addressBookStorage.readExpenditureTracker(expenditureFilePath);
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyExpenditureTracker;
 
 /**
  * Represents a storage for {@link seedu.address.model.AddressBook}.
@@ -16,6 +17,7 @@ public interface AddressBookStorage {
      * Returns the file path of the data file.
      */
     Path getAddressBookFilePath();
+    Path getExpenditureTrackerFilePath();
 
     /**
      * Returns AddressBook data as a {@link ReadOnlyAddressBook}.
@@ -29,6 +31,20 @@ public interface AddressBookStorage {
      * @see #getAddressBookFilePath()
      */
     Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException;
+
+    /**
+     * Returns Expenditure data as a {@link ReadOnlyExpenditureTracker}.
+     *   Returns {@code Optional.empty()} if storage file is not found.
+     * @throws DataConversionException if the data in storage is not in the expected format.
+     * @throws IOException if there was any problem when reading from the storage.
+     */
+    Optional<ReadOnlyExpenditureTracker> readExpenditureTracker() throws DataConversionException, IOException;
+
+    /**
+     * @see #getExpenditureTrackerFilePath()
+     */
+    Optional<ReadOnlyExpenditureTracker> readExpenditureTracker(Path filePath)
+            throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link ReadOnlyAddressBook} to the storage.

@@ -90,25 +90,32 @@ public class MainApp extends Application {
      */
     private Model initModelManager(Storage storage, UserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
-        //Optional<ReadOnlyExpenditureTracker> expenditureTrackerOptional;
+        Optional<ReadOnlyExpenditureTracker> expenditureTrackerOptional;
         ReadOnlyAddressBook initialData;
         ReadOnlyTodoList initialTodoList = new TodoList();
         ReadOnlyExpenditureTracker initialExpenditureTracker = new ExpenditureTracker();
+
         try {
             addressBookOptional = storage.readAddressBook();
+            expenditureTrackerOptional = storage.readExpenditureTracker();
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
             initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialExpenditureTracker = expenditureTrackerOptional
+                    .orElseGet(SampleDataUtil::getSampleExpenditureTracker);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
             initialData = new AddressBook();
+            initialExpenditureTracker = new ExpenditureTracker();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
             initialData = new AddressBook();
+            initialExpenditureTracker = new ExpenditureTracker();
         }
 
         return new ModelManager(initialData, initialTodoList, initialExpenditureTracker, userPrefs);
+
     }
 
     private void initLogging(Config config) {

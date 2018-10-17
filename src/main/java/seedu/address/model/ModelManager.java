@@ -28,9 +28,9 @@ public class ModelManager extends ComponentManager implements Model {
     private final VersionedAddressBook versionedAddressBook;
     private final VersionedTodoList versionedTodoList;
     private final VersionedExpenditureTracker versionedExpenditureTracker;
+    private final FilteredList<Expenditure> filteredExpenditures;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Task> filteredTasks;
-    private final FilteredList<Expenditure> filteredExpenditures;
 
 
     /**
@@ -46,9 +46,9 @@ public class ModelManager extends ComponentManager implements Model {
         versionedAddressBook = new VersionedAddressBook(addressBook);
         versionedTodoList = new VersionedTodoList(todoList);
         versionedExpenditureTracker = new VersionedExpenditureTracker(expenditureTracker);
+        filteredExpenditures = new FilteredList<>(versionedExpenditureTracker.getExpenditureList());
         filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
         filteredTasks = new FilteredList<>(versionedTodoList.getTaskList());
-        filteredExpenditures = new FilteredList<>(versionedExpenditureTracker.getExpenditureList());
     }
 
     public ModelManager() {

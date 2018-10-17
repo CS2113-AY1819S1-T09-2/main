@@ -521,29 +521,15 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Todo List and Expenditure Tracker data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Task&gt;</code> and <code>ObservableList&lt;Expenditure&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -566,7 +552,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in xml format and read it back.</p>
+<p>can save the Todo List and Expenditure Tracker data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -2139,14 +2125,14 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>add</code> command and keys in the task</p>
+<p>User enters <code>TDL_add</code> command and keys in the task</p>
 </li>
 <li>
 <p>To-do list shows the task entered in the list</p>
 </li>
 </ol>
 </div>
-<h3 id="use-case-2-edit-or-update-task" class="discrete">Use case 2:Edit or Update task</h3>
+<h3 id="use-case-2-edit-or-update-task" class="discrete">Use case 2: Edit or Update task</h3>
 <div class="paragraph">
 <p><strong>System:</strong>
 To-do list</p>
@@ -2157,7 +2143,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>edit</code> command followed by index number</p>
+<p>User enters <code>TDL_edit</code> command followed by index number</p>
 </li>
 <li>
 <p>To-do list confirms task is present in the list</p>
@@ -2191,7 +2177,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>delete</code> command followed by index number</p>
+<p>User enters <code>TDL_delete</code> command followed by index number</p>
 </li>
 <li>
 <p>To-do list confirms task is present and deletes the task</p>
@@ -2219,7 +2205,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>sort by mod</code> command</p>
+<p>User enters <code>TDL_sort by mod</code> command</p>
 </li>
 <li>
 <p>To-do list shows a sorted list of tasks grouped by modules</p>
@@ -2237,7 +2223,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>sort by ddl</code> command</p>
+<p>User enters <code>TDL_sort by ddl</code> command</p>
 </li>
 <li>
 <p>To-do list shows the all uncompleted modules sorted by deadlines, the task with latest deadline is the first task</p>
@@ -2255,7 +2241,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>sort by impt</code> command</p>
+<p>User enters <code>TDL_sort by impt</code> command</p>
 </li>
 <li>
 <p>To-do list shows a sorted list of tasks grouped by priority level in descending order</p>
@@ -2273,7 +2259,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>view completed</code> command</p>
+<p>User enters <code>TDL_view completed</code> command</p>
 </li>
 <li>
 <p>To-do list shows a list of tasks that has been marked as completed</p>
@@ -2291,7 +2277,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>view uncompleted</code> command</p>
+<p>User enters <code>TDL_view uncompleted</code> command</p>
 </li>
 <li>
 <p>To-do list shows a list of tasks that have not been marked as completed</p>
@@ -2309,7 +2295,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>complete</code> command followed by index number</p>
+<p>User enters <code>TDL_complete</code> command followed by index number</p>
 </li>
 <li>
 <p>To-do list marks task as completed and moves the task to a separate list of completed tasks</p>
@@ -2326,7 +2312,35 @@ To-do list</p>
   2b1. To-do list shows an error message</pre>
 </div>
 </div>
-<h3 id="use-case-10-receiving-reminders-for-a-task" class="discrete">Use case 10: Receiving reminders for a task</h3>
+<h3 id="use-case-10-marking-a-task-as-uncompleted" class="discrete">Use case 10: Marking a task as uncompleted</h3>
+<div class="paragraph">
+<p><strong>System:</strong>
+To-do list</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>TDL_uncomplete</code> command followed by index number</p>
+</li>
+<li>
+<p>To-do list marks task as uncompleted and moves the task to a separate list of uncompleted tasks</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>2a. The list is empty.
+2b. The given index is invalid
+  2b1. To-do list shows an error message</pre>
+</div>
+</div>
+<h3 id="use-case-11-receiving-reminders-for-a-task" class="discrete">Use case 11: Receiving reminders for a task</h3>
 <div class="paragraph">
 <p><strong>System:</strong>
 To-do list</p>
@@ -2344,7 +2358,7 @@ To-do list</p>
 </li>
 </ol>
 </div>
-<h3 id="use-case-11-add-expenditure-income" class="discrete">Use case 11: Add expenditure / income</h3>
+<h3 id="use-case-12-add-expenditure-income" class="discrete">Use case 12: Add expenditure / income</h3>
 <div class="paragraph">
 <p><strong>System:</strong>
 Expenditure Tracker &amp; Calendar</p>
@@ -2374,7 +2388,7 @@ Expenditure Tracker &amp; Calendar</p>
 </li>
 </ol>
 </div>
-<h3 id="use-case-12-check-expenditure-income-status" class="discrete">Use case 12: Check expenditure / income status</h3>
+<h3 id="use-case-13-check-expenditure-income-status" class="discrete">Use case 13: Check expenditure / income status</h3>
 <div class="paragraph">
 <p><strong>System:</strong>
 Expenditure Tracker &amp; Calendar</p>
@@ -2439,7 +2453,7 @@ Expenditure Tracker &amp; Calendar</p>
 A to-do list mobile application</p>
 </div>
 <div class="paragraph">
-<p>Author: Ran Tian (arty9)</p>
+<p>Author: Ran Tian</p>
 </div>
 <div class="paragraph">
 <p>Pros:</p>
@@ -2584,4 +2598,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 09:06:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 12:04:58 UTC</div></div></div></body></html>

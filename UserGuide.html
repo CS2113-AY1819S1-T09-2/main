@@ -14,17 +14,19 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-task-code-tdl-add-code">3.2. Adding a task: <code>TDL add</code></a></li>
-<li><a href="#editing-a-task-code-tdl-edit-code">3.3. Editing a task : <code>TDL edit</code></a></li>
-<li><a href="#deleting-a-task-code-tdl-delete-code">3.4. Deleting a task : <code>TDL delete</code></a></li>
-<li><a href="#completing-a-task-code-tdl-complete-code">3.5. Completing a task : <code>TDL complete</code></a></li>
-<li><a href="#view-all-tasks-code-tdl-view-code">3.6. View all tasks : <code>TDL view</code></a></li>
-<li><a href="#sort-all-tasks-listed-code-tdl-sort-code">3.7. Sort all tasks listed : <code>TDL sort</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.8. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.9. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.11. Saving the data</a></li>
-<li><a href="#commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code">3.12. Commands for expenditure tracker and calendar to be added in the near future. <code>[coming in v2.0]</code></a></li>
+<li><a href="#adding-a-task-code-tdl_add-code">3.2. Adding a task: <code>TDL_add</code></a></li>
+<li><a href="#editing-a-task-code-tdl_edit-code">3.3. Editing a task : <code>TDL_edit</code></a></li>
+<li><a href="#deleting-a-task-code-tdl_delete-code">3.4. Deleting a task : <code>TDL_delete</code></a></li>
+<li><a href="#marking-a-task-as-completed-code-tdl_complete-code">3.5. Marking a task as completed: <code>TDL_complete</code></a></li>
+<li><a href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">3.6. Marking a task as uncompleted: <code>TDL_uncomplete</code></a></li>
+<li><a href="#view-all-tasks-code-tdl_view-code">3.7. View all tasks : <code>TDL_view</code></a></li>
+<li><a href="#sort-all-tasks-listed-code-tdl_sort-code">3.8. Sort all tasks listed : <code>TDL_sort</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.13. Saving the data</a></li>
+<li><a href="#commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code">3.14. Commands for expenditure tracker and calendar to be added in the near future. <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -71,10 +73,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>TDL add</code></strong><code>t/Tutorial 5 m/CS2101 d/12-09 p/1</code> : adds a task named <code>Tutorial 5</code> to the To-do List.</p>
+<p><strong><code>TDL_add</code></strong><code>t/Tutorial 5 m/CS2101 d/12-09 p/1</code> : adds a task named <code>Tutorial 5</code> to the To-do List.</p>
 </li>
 <li>
-<p><strong><code>TDL delete</code></strong><code>3</code> : deletes the 3rd task in the To-do List</p>
+<p><strong><code>TDL_delete</code></strong><code>3</code> : deletes the 3rd task in the To-do List</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -103,7 +105,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Our product will be divided to two sub-parts which are called <code>To-do List</code> and <code>Expenditure Tracker</code>. For each part, do remember to add the domain command <code>TDL</code> (which represents To-do List) or <code>ET</code> (which represents Expenditure Tracker). E.g. in <code>ET check status</code>, <code>ET</code> is the domain command that leads you to Expenditure Tracker.</p>
 </li>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>TDL add t/TASK</code>, <code>TASK</code> is a parameter which can be used as <code>add t/Homework</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>TDL_add t/TASK</code>, <code>TASK</code> is a parameter which can be used as <code>add t/Homework</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g. <code>t/TASK [d/DATE]</code> can be used as <code>t/Homework d/12-09</code> or as <code>t/Homework</code>.</p>
@@ -123,10 +125,10 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-task-code-tdl-add-code"><a class="link" href="#adding-a-task-code-tdl-add-code">3.2. Adding a task: <code>TDL add</code></a></h3>
+<h3 id="adding-a-task-code-tdl_add-code"><a class="link" href="#adding-a-task-code-tdl_add-code">3.2. Adding a task: <code>TDL_add</code></a></h3>
 <div class="paragraph">
 <p>Adds a task to the to-do list<br>
-Format: <code>TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]</code></p>
+Format: <code>TDL_add t/TASK m/MODULE [d/DATE] [p/PRIORITY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -151,16 +153,16 @@ Format: <code>TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL add t/Tutorial 5 m/CS2101 d/12-09 p/1</code></p>
+<p><code>TDL_add t/Tutorial 5 m/CS2101 d/12-09 p/1</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-task-code-tdl-edit-code"><a class="link" href="#editing-a-task-code-tdl-edit-code">3.3. Editing a task : <code>TDL edit</code></a></h3>
+<h3 id="editing-a-task-code-tdl_edit-code"><a class="link" href="#editing-a-task-code-tdl_edit-code">3.3. Editing a task : <code>TDL_edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing task in the to-do list.<br>
-Format: <code>TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
+Format: <code>TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -188,21 +190,21 @@ Format: <code>TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL edit 1 t/Tutorial 2 m/CS2113</code><br>
+<p><code>TDL_edit 1 t/Tutorial 2 m/CS2113</code><br>
 Edits the task name and module code of the 1st task to be <code>Tutorial 2</code> and <code>CS2113</code> respectively.</p>
 </li>
 <li>
-<p><code>TDL edit 2 t/Tutorial 2 d/ p/</code><br>
+<p><code>TDL_edit 2 t/Tutorial 2 d/ p/</code><br>
 Edits the task name of the 2nd task to be <code>Tutorial 2</code> and clears all existing deadlines and priority tags associated with this task.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task-code-tdl-delete-code"><a class="link" href="#deleting-a-task-code-tdl-delete-code">3.4. Deleting a task : <code>TDL delete</code></a></h3>
+<h3 id="deleting-a-task-code-tdl_delete-code"><a class="link" href="#deleting-a-task-code-tdl_delete-code">3.4. Deleting a task : <code>TDL_delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified task from the to-do list.<br>
-Format: <code>TDL delete INDEX</code></p>
+Format: <code>TDL_delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -227,21 +229,21 @@ Format: <code>TDL delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL delete 2</code><br>
+<p><code>TDL_delete 2</code><br>
 Deletes the 2nd task in the to-do list.</p>
 </li>
 <li>
-<p><code>TDL delete 1</code><br>
+<p><code>TDL_delete 1</code><br>
 Deletes the 1st task in the to-do list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="completing-a-task-code-tdl-complete-code"><a class="link" href="#completing-a-task-code-tdl-complete-code">3.5. Completing a task : <code>TDL complete</code></a></h3>
+<h3 id="marking-a-task-as-completed-code-tdl_complete-code"><a class="link" href="#marking-a-task-as-completed-code-tdl_complete-code">3.5. Marking a task as completed: <code>TDL_complete</code></a></h3>
 <div class="paragraph">
-<p>Mark a task in the to-do list as completed.<br>
-Format: <code>TDL complete INDEX</code></p>
+<p>Marks the specified task in the to-do list as completed.<br>
+Format: <code>TDL_complete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -266,17 +268,52 @@ Format: <code>TDL complete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL complete 3</code><br>
+<p><code>TDL_complete 3</code><br>
 The 3rd task in the to-do list is now marked as completed and will be moved to the <em>completed tasks</em> list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-all-tasks-code-tdl-view-code"><a class="link" href="#view-all-tasks-code-tdl-view-code">3.6. View all tasks : <code>TDL view</code></a></h3>
+<h3 id="marking-a-task-as-uncompleted-code-tdl_uncomplete-code"><a class="link" href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">3.6. Marking a task as uncompleted: <code>TDL_uncomplete</code></a></h3>
+<div class="paragraph">
+<p>Marks the specific task in the to-do list as uncompleted.<br>
+Format: <code>TDL_uncomplete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Mark the task at the specified <code>INDEX</code> as <code>uncompleted</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed completed tasks list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_uncomplete 3</code><br>
+The 3rd task in the to-do list is now marked as uncompleted and will be moved to the <em>uncompleted tasks</em> list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-all-tasks-code-tdl_view-code"><a class="link" href="#view-all-tasks-code-tdl_view-code">3.7. View all tasks : <code>TDL_view</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of uncompleted or completed tasks in the to-do list.<br>
-Format: <code>TDL view PARAMETER</code></p>
+Format: <code>TDL_view PARAMETER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -289,7 +326,7 @@ Format: <code>TDL view PARAMETER</code></p>
 <p>The default view for the todo list is <em>uncompleted tasks</em>.</p>
 </li>
 <li>
-<p>Performing <code>TDL view uncompleted</code> on to-do list with the list already at <em>uncompleted tasks</em> will not result in any changes. The same is applied to <em>completed tasks</em> list with <code>TDL view completed</code> command.</p>
+<p>Performing <code>TDL_view uncompleted</code> on to-do list with the list already at <em>uncompleted tasks</em> will not result in any changes. The same is applied to <em>completed tasks</em> list with <code>TDL_view completed</code> command.</p>
 </li>
 <li>
 <p>The GUI should allow the user to understand which list they are currently looking at.</p>
@@ -304,17 +341,17 @@ Format: <code>TDL view PARAMETER</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL view completed</code><br>
+<p><code>TDL_view completed</code><br>
 The list is now populated with tasks marked as completed.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-all-tasks-listed-code-tdl-sort-code"><a class="link" href="#sort-all-tasks-listed-code-tdl-sort-code">3.7. Sort all tasks listed : <code>TDL sort</code></a></h3>
+<h3 id="sort-all-tasks-listed-code-tdl_sort-code"><a class="link" href="#sort-all-tasks-listed-code-tdl_sort-code">3.8. Sort all tasks listed : <code>TDL_sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts and displays the to-do list by a certain tag.<br>
-Format: <code>TDL sort by PARAMETER</code></p>
+Format: <code>TDL_sort by PARAMETER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -336,14 +373,35 @@ Format: <code>TDL sort by PARAMETER</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL sort by deadline</code><br>
+<p><code>TDL_sort by deadline</code><br>
 The tasks are now sorted by deadlines, where tasks without deadlines are at the bottom of the list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.8. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.<br>
+Format: <code>history</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -368,15 +426,15 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL complete 3</code><br>
-<code>TDL view completed</code><br>
-<code>undo</code> (reverses the <code>TDL complete 3</code> command)<br></p>
+<p><code>TDL_complete 3</code><br>
+<code>TDL_view completed</code><br>
+<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.9. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -387,29 +445,29 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>TDL complete 3</code><br>
-<code>undo</code> (reverses the <code>TDL complete 3</code> command)<br>
-<code>redo</code> (reapplies the <code>TDL complete 3</code> command)<br></p>
+<p><code>TDL_complete 3</code><br>
+<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br>
+<code>redo</code> (reapplies the <code>TDL_complete 3</code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
 <div class="paragraph">
 <p>All to-do list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code"><a class="link" href="#commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code">3.12. Commands for expenditure tracker and calendar to be added in the near future. <code>[coming in v2.0]</code></a></h3>
+<h3 id="commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code"><a class="link" href="#commands-for-expenditure-tracker-and-calendar-to-be-added-in-the-near-future-code-coming-in-v2-0-code">3.14. Commands for expenditure tracker and calendar to be added in the near future. <code>[coming in v2.0]</code></a></h3>
 
 </div>
 </div>
@@ -429,28 +487,31 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>TDL add t/TASK m/MODULE [d/DATE] [p/PRIORITY]</code></p>
+<p><strong>View</strong> : <code>TDL_view PARAMETER</code></p>
 </li>
 <li>
-<p><strong>Complete</strong> : <code>TDL complete INDEX</code></p>
+<p><strong>Add</strong> <code>TDL_add t/TASK m/MODULE [d/DATE] [p/PRIORITY]</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>TDL delete INDEX</code></p>
+<p><strong>Edit</strong> : <code>TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>TDL edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
+<p><strong>Delete</strong> : <code>TDL_delete INDEX</code></p>
 </li>
 <li>
-<p><strong>Sort</strong> : <code>TDL sort by PARAMETER</code></p>
+<p><strong>Complete</strong> : <code>TDL_complete INDEX</code></p>
+</li>
+<li>
+<p><strong>Uncomplete</strong> : <code>TDL_uncomplete INDEX</code></p>
+</li>
+<li>
+<p><strong>Sort</strong> : <code>TDL_sort by PARAMETER</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-<li>
-<p><strong>View</strong> : <code>TDL view PARAMETER</code></p>
+<p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
@@ -458,7 +519,10 @@ There is no need to save manually.</p>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 09:06:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 12:04:58 UTC</div></div></div></body></html>

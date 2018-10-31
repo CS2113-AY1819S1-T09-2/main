@@ -19,18 +19,19 @@
 <li><a href="#deleting-a-task-code-tdl_delete-code">3.4. Deleting a task : <code>TDL_delete</code></a></li>
 <li><a href="#marking-a-task-as-completed-code-tdl_complete-code">3.5. Marking a task as completed: <code>TDL_complete</code></a></li>
 <li><a href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">3.6. Marking a task as uncompleted: <code>TDL_uncomplete</code></a></li>
-<li><a href="#view-tasks-code-tdl_view-code">3.7. View tasks : <code>TDL_view</code></a></li>
-<li><a href="#sort-all-tasks-listed-code-tdl_sort-code">3.8. Sort all tasks listed : <code>TDL_sort</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#adding-an-expenditure">3.14. Adding an expenditure</a></li>
-<li><a href="#editing-and-expenditure-code-et_edit-code">3.15. Editing and expenditure : <code>ET_edit</code></a></li>
-<li><a href="#deleting-an-expenditure-code-et_delete-code">3.16. Deleting an expenditure : <code>ET_delete</code></a></li>
-<li><a href="#getting-advice-for-spending-money-code-et_advice-code">3.17. Getting advice for spending money : <code>ET_advice</code></a></li>
-<li><a href="#checking-expenditures-code-et_check-code">3.18. Checking expenditures : <code>ET_check</code></a></li>
+<li><a href="#viewing-tasks-code-tdl_view-code">3.7. Viewing tasks : <code>TDL_view</code></a></li>
+<li><a href="#sorting-tasks-code-tdl_sort-code">3.8. Sorting tasks : <code>TDL_sort</code></a></li>
+<li><a href="#adding-an-expenditure-code-et_add-code">3.9. Adding an expenditure : <code>ET_add</code></a></li>
+<li><a href="#editing-an-expenditure-code-et_edit-code">3.10. Editing an expenditure : <code>ET_edit</code></a></li>
+<li><a href="#deleting-an-expenditure-code-et_delete-code">3.11. Deleting an expenditure : <code>ET_delete</code></a></li>
+<li><a href="#viewing-expenditures-code-et_view-code">3.12. Viewing expenditures : <code>ET_view</code></a></li>
+<li><a href="#checking-expenditures-code-et_check-code">3.13. Checking expenditures : <code>ET_check</code></a></li>
+<li><a href="#getting-advice-for-spending-money-code-et_advice-code">3.14. Getting advice for spending money : <code>ET_advice</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.16. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.17. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.19. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -55,7 +56,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>somethingdaily.jar</code> <a href="https://github.com/CS2113-AY1819S1-T09-2/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your application.</p>
@@ -317,7 +318,7 @@ The 3rd task in the to-do list is now marked as uncompleted.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-tasks-code-tdl_view-code"><a class="link" href="#view-tasks-code-tdl_view-code">3.7. View tasks : <code>TDL_view</code></a></h3>
+<h3 id="viewing-tasks-code-tdl_view-code"><a class="link" href="#viewing-tasks-code-tdl_view-code">3.7. Viewing tasks : <code>TDL_view</code></a></h3>
 <div class="paragraph">
 <p>Shows a filtered list of tasks in the to-do list.<br>
 Format: <code>TDL_view PARAMETER</code></p>
@@ -336,7 +337,7 @@ Format: <code>TDL_view PARAMETER</code></p>
 <p>Performing <code>TDL_view uncompleted</code> with the to-do list displaying <em>uncompleted tasks</em> will not result in any changes. The same is applied to <em>completed tasks</em> list with <code>TDL_view completed</code> command.</p>
 </li>
 <li>
-<p>The GUI should allow the user to understand which list they are currently looking at.</p>
+<p>The GUI should allow the user to understand which list they are currently looking at. [Coming in v1.4]</p>
 </li>
 </ul>
 </div>
@@ -359,20 +360,20 @@ The list is now populated with all tasks regardless of their completion status.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-all-tasks-listed-code-tdl_sort-code"><a class="link" href="#sort-all-tasks-listed-code-tdl_sort-code">3.8. Sort all tasks listed : <code>TDL_sort</code></a></h3>
+<h3 id="sorting-tasks-code-tdl_sort-code"><a class="link" href="#sorting-tasks-code-tdl_sort-code">3.8. Sorting tasks : <code>TDL_sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts and displays the to-do list by a certain tag.<br>
-Format: <code>TDL_sort by PARAMETER</code></p>
+Format: <code>TDL_sort PARAMETER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>PARAMETER is either <code>module</code> for module, <code>date</code> for deadline or <code>priority</code> for importance/priority.</p>
+<p>PARAMETER is either <code>module</code>, <code>date</code> or <code>priority</code>.</p>
 </li>
 <li>
-<p>PARAMETER can be set as <code>default</code> and tasks will be sorted by alphabetically by their names.</p>
+<p>PARAMETER can be set as <code>default</code> and tasks will be sorted alphabetically by their names.</p>
 </li>
 <li>
 <p>PARAMETER can also be set as <code>reverse</code> and the former order of tasks will be reversed.</p>
@@ -391,104 +392,17 @@ Format: <code>TDL_sort by PARAMETER</code></p>
 <ul>
 <li>
 <p><code>TDL_sort date</code><br>
-The tasks are now sorted by deadlines, where tasks without deadlines are at the bottom of the list.</p>
+The tasks are now sorted by its due date.</p>
 </li>
 <li>
 <p><code>TDL_view uncompleted</code> + <code>TDL_sort priority</code><br>
-All uncompleted tasks will be sorted by their priority.</p>
+All uncompleted tasks will be sorted by their priority level.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the application&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>complete</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>TDL_complete 3</code><br>
-<code>TDL_view completed</code><br>
-<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>TDL_complete 3</code><br>
-<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br>
-<code>redo</code> (reapplies the <code>TDL_complete 3</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
-<div class="paragraph">
-<p>All to-do list data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-an-expenditure"><a class="link" href="#adding-an-expenditure">3.14. Adding an expenditure</a></h3>
+<h3 id="adding-an-expenditure-code-et_add-code"><a class="link" href="#adding-an-expenditure-code-et_add-code">3.9. Adding an expenditure : <code>ET_add</code></a></h3>
 <div class="paragraph">
 <p>Adds an expenditure to Expenditure Tracker<br>
 Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
@@ -507,7 +421,7 @@ Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
 <p>The m/MONEY field accepts both integer and floating point numbers.</p>
 </li>
 <li>
-<p>The format for <code>c/CATEGORY</code> must be one of Food, Drink, Clothing, Electronics, DailyNecessities, Sports, Communications, Travels, Study, Office, Pets, Gifts, Entertainment, Traffic, Shopping, Beauty, Furniture.</p>
+<p>The format for <code>c/CATEGORY</code> must be one of the following: Food, Drink, Clothing, Electronics, DailyNecessities, Sports, Communications, Travels, Study, Office, Pets, Gifts, Entertainment, Traffic, Shopping, Beauty, Furniture.</p>
 </li>
 </ul>
 </div>
@@ -525,7 +439,7 @@ Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-and-expenditure-code-et_edit-code"><a class="link" href="#editing-and-expenditure-code-et_edit-code">3.15. Editing and expenditure : <code>ET_edit</code></a></h3>
+<h3 id="editing-an-expenditure-code-et_edit-code"><a class="link" href="#editing-an-expenditure-code-et_edit-code">3.10. Editing an expenditure : <code>ET_edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing expenditure in the Expenditure Tracker.<br>
 Format: <code>ET_edit INDEX [e/DESCRIPTION] [d/DATE] [m/MONEY] [c/CATEGORY]</code></p>
@@ -554,7 +468,7 @@ Format: <code>ET_edit INDEX [e/DESCRIPTION] [d/DATE] [m/MONEY] [c/CATEGORY]</cod
 <ul>
 <li>
 <p><code>ET_edit 1 e/Beef rice m/12.5</code><br>
-Edits the expenditure description and money detail of thhe first expenditure in the Expenditure Tracker list to be <code>Beef rice</code> and <code>12.5</code> respectively.</p>
+Edits the expenditure description and money detail of the 1st expenditure in the Expenditure Tracker list to be <code>Beef rice</code> and <code>12.5</code> respectively.</p>
 </li>
 <li>
 <p><code>ET_edit 2 d/09-12-2018 c/Electronics</code><br>
@@ -564,7 +478,7 @@ Edits the expenditure date and category of the 2nd expenditure to be <code>09-12
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-expenditure-code-et_delete-code"><a class="link" href="#deleting-an-expenditure-code-et_delete-code">3.16. Deleting an expenditure : <code>ET_delete</code></a></h3>
+<h3 id="deleting-an-expenditure-code-et_delete-code"><a class="link" href="#deleting-an-expenditure-code-et_delete-code">3.11. Deleting an expenditure : <code>ET_delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified expenditure from the Expenditure Tracker.<br>
 Format: <code>ET_delete INDEX</code></p>
@@ -603,9 +517,87 @@ Deletes the 1st expenditure in the Expenditure Tracker.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-advice-for-spending-money-code-et_advice-code"><a class="link" href="#getting-advice-for-spending-money-code-et_advice-code">3.17. Getting advice for spending money : <code>ET_advice</code></a></h3>
+<h3 id="viewing-expenditures-code-et_view-code"><a class="link" href="#viewing-expenditures-code-et_view-code">3.12. Viewing expenditures : <code>ET_view</code></a></h3>
 <div class="paragraph">
-<p>Gives a short summary of the expenditures made so far and provides advice on how to spend a particular amount of money in the following period.<br>
+<p>Shows a filtered list of expenditures in the expenditure tracker.<br>
+Format: <code>ET_view PARAMETER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>PARAMETER is either <code>DATE</code>, <code>CATEGORY</code> or <code>all</code>.</p>
+</li>
+<li>
+<p>The default view for the expenditure tracker upon starting up is <em>all expenditures</em>.</p>
+</li>
+<li>
+<p>If <code>DATE</code> is used, the input must be in DD-MM-YYYY, where DD refers to the date, MM refers to the month and YYYY refers to the year in numbers.</p>
+</li>
+<li>
+<p>If <code>CATEGORY</code> is used, the input must only be one of the following: Food, Drink, Clothing, Electronics, DailyNecessities, Sports, Communications, Travels, Study, Office, Pets, Gifts, Entertainment, Traffic, Shopping, Beauty, Furniture.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ET_view 01-01-2018</code><br>
+The list is now populated with expenditures of date <code>01-01-2018</code>.</p>
+</li>
+<li>
+<p><code>ET_view Electronics</code><br>
+The list is now populated with expenditures of <code>Electronics</code> category.</p>
+</li>
+<li>
+<p><code>ET_view all</code><br>
+The list is now populated with all expenditures regardless of their date or category.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-expenditures-code-et_check-code"><a class="link" href="#checking-expenditures-code-et_check-code">3.13. Checking expenditures : <code>ET_check</code></a></h3>
+<div class="paragraph">
+<p>Checks the status of the expenditures in a particular period and generates a graph [coming in v1.4] to demonstrate how much money was spent on each unit period.<br>
+Format: <code>ET_check start/STARTDATE end/ENDDATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>start/STARTDATE</code> and <code>end/ENDDATE</code> must be in the format of DD-MM-YYYY, where DD refers the date, MM refers the month and YYYY refers the year in numbers.</p>
+</li>
+<li>
+<p><code>end/ENDDATE</code> must be of a later date than <code>start/STARTDATE</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ET_check start/01-01-2017 start/01-01-2018</code><br>
+Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generates a graph [coming in v1.4] to demonstrate how much money was spent on each month.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getting-advice-for-spending-money-code-et_advice-code"><a class="link" href="#getting-advice-for-spending-money-code-et_advice-code">3.14. Getting advice for spending money : <code>ET_advice</code></a></h3>
+<div class="paragraph">
+<p>Gives a short summary of the expenditures made so far and provides advice on how to spend a particular amount of money in a given period of time.<br>
 Format: <code>ET_advice m/MONEY numofdays/NUMBEROFDAYS</code></p>
 </div>
 <div class="sidebarblock">
@@ -613,10 +605,10 @@ Format: <code>ET_advice m/MONEY numofdays/NUMBEROFDAYS</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>m/MONEY accepts both integer and floating point numbers.</p>
+<p><code>m/MONEY</code> accepts both integer and floating point numbers.</p>
 </li>
 <li>
-<p>numofdays/NUMBEROFDAYS only accepts interger which represents the number of days</p>
+<p><code>numofdays/NUMBEROFDAYS</code> only accepts integer which represents the number of days</p>
 </li>
 </ul>
 </div>
@@ -639,21 +631,45 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-expenditures-code-et_check-code"><a class="link" href="#checking-expenditures-code-et_check-code">3.18. Checking expenditures : <code>ET_check</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
-<p>Checks the status of the expenditures in a particular period and generates a graph to demonstrate how much money was spent on each unit period.<br>
-Format: <code>ET_check start/DATE end/DATE</code></p>
+<p>Lists all the commands that you have entered in reverse chronological order.<br>
+Format: <code>history</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>start/DATE and end/DATE must be in the format of DD-MM-YYYY, where DD refers the date, MM refers the month and YYYY refers the year in numbers.</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code-coming-in-v1-4"><a class="link" href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.16. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></h3>
+<div class="paragraph">
+<p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the application&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>complete</code>).</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -661,10 +677,44 @@ Format: <code>ET_check start/DATE end/DATE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ET_check start/01-01-2017 start/01-01-2018</code><br>
-Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generates a graph to demonstrate how much money was spent on each month.</p>
+<p><code>TDL_complete 3</code><br>
+<code>TDL_view completed</code><br>
+<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.17. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_complete 3</code><br>
+<code>undo</code> (reverses the <code>TDL_complete 3</code> command)<br>
+<code>redo</code> (reapplies the <code>TDL_complete 3</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
+<div class="paragraph">
+<p>All to-do list data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
 </div>
 </div>
 </div>
@@ -673,21 +723,43 @@ Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generate
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>:
-<strong>A</strong>:</p>
+<p><strong>Q</strong>: How do I transfer my data to another computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data files it creates with the files that contains the data in your previous data folder.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>General:</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>View</strong> : <code>TDL_view PARAMETER</code></p>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Add</strong> <code>TDL_add t/TASK m/MODULE d/DATE p/PRIORITY</code></p>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <code>undo</code> [Coming in v1.4]</p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code> [Coming in v1.4]</p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>To-do List:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <code>TDL_add t/TASK m/MODULE d/DATE p/PRIORITY</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
@@ -702,7 +774,29 @@ Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generate
 <p><strong>Uncomplete</strong> : <code>TDL_uncomplete INDEX</code></p>
 </li>
 <li>
-<p><strong>Sort</strong> : <code>TDL_sort by PARAMETER</code></p>
+<p><strong>View</strong> : <code>TDL_view PARAMETER</code></p>
+</li>
+<li>
+<p><strong>Sort</strong> : <code>TDL_sort PARAMETER</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Expenditure Tracker:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>ET_edit INDEX [e/DESCRIPTION] [d/DATE] [m/MONEY] [c/CATEGORY]</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>ET_delete INDEX</code></p>
+</li>
+<li>
+<p><strong>View</strong> : <code>ET_view PARAMETER</code></p>
 </li>
 <li>
 <p><strong>Check</strong> : <code>ET_check start/STARTDATE end/ENDDATE</code></p>
@@ -710,22 +804,7 @@ Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generate
 <li>
 <p><strong>Advice</strong> : <code>ET_advice m/MONEY numofdays/NUMBEROFDAYS</code></p>
 </li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:01:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 17:21:05 UTC</div></div></div></body></html>

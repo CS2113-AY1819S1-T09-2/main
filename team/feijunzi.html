@@ -26,25 +26,61 @@ created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to check how much money they have spent in a
-specific period and appear a chart to show each expense</p>
+<p>What it does: allows the user to check how much money they have spent in a specific period.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because if a user
-want to know how much money they have spent in a period, they can easily get the
-value and see where they have spent directly from the chart.</p>
-</li>
-<li>
-<p>Highlights: This enhancement will appear a new window to show the chart.</p>
-</li>
-<li>
-<p>Credits: This feature needs another library which is jfreechart to draw the chart.</p>
+<p>Justification: This feature improves the product significantly because if a user want to know how much money they have spent in a period, they can easily get the value.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: add the delete and edit command for expenditure tracker.</p>
+<p><strong>Major enhancement</strong>: added <strong>a chart to show the expenditure</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to see where and how much they have spent when they want to use the check command.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because users can see their each expense in a period directly.</p>
+</li>
+<li>
+<p>Highlights: This enhancement will appear a new window to show the chart.</p>
+</li>
+<li>
+<p>Credits: This feature needs another library <strong>jfreechart</strong> to draw the chart.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to delete an expenditure</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to delete an expenditure by index.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because users may add a wrong expenditure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to edit an expenditure</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to edit an expenditure by index.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because users may want to change some parts of an expenditure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: change GUI for expenditure tracker part</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test
@@ -55,52 +91,11 @@ code</a>] <em>{give links to collated code files}</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, https:/
-github.com[#34])</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92%
-(Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)** Documentation:</p>
-</li>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: https:/
-github.com[#14]</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>,
-<a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, https:/
-github.com[2], <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  https:/github.com[1], <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class
-mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>PRs reviewed (with review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
 </ul>
 </div>
@@ -110,10 +105,7 @@ mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated a third party library (jFreeChart) to the project</p>
 </li>
 </ul>
 </div>
@@ -122,9 +114,6 @@ mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -142,6 +131,38 @@ to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="checking-expenditures-code-et_check-code"><a class="link" href="#checking-expenditures-code-et_check-code">Checking expenditures : <code>ET_check</code></a></h3>
+<div class="paragraph">
+<p>Checks the status of the expenditures in a particular period and generates a graph [coming in v1.4] to demonstrate how much money was spent on each unit period.<br>
+Format: <code>ET_check start/STARTDATE end/ENDDATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>start/STARTDATE</code> and <code>end/ENDDATE</code> must be in the format of DD-MM-YYYY, where DD refers the date, MM refers the month and YYYY refers the year in numbers.</p>
+</li>
+<li>
+<p><code>end/ENDDATE</code> must be of a later date than <code>start/STARTDATE</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ET_check start/01-01-2017 start/01-01-2018</code><br>
+Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generates a graph [coming in v1.4] to demonstrate how much money was spent on each expenditure.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -191,4 +212,4 @@ It also generate a chart to show each expenditure in this period on each date.</
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:19:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:16:21 UTC</div></div></div></body></html>

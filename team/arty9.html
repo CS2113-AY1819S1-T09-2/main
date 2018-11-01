@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Something Daily is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Something Daily is a desktop task and expenditure tracker application created for NUS SoC students to aid them in their busy student life. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
 </div>
 </div>
@@ -20,26 +20,65 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Designed <strong>model component for To-do List</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It is the component that holds all to-do list related data of the app in-memory.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Justification: This component is a core building block of the to-do list in the app.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement</strong>: Designed <strong>storage component for To-do List</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It is the component that reads and writes to-do list data to the hard disk.</p>
+</li>
+<li>
+<p>Justification: This component allows user&#8217;s to-do list data to be stored, hence allowing the user to keep track of his/her task&#8217;s progress.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to mark a task as completed/uncompleted</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The command allows the user to mark a specific task in the to-do list as completed or uncompleted. The status is then updated accordingly in the UI of the to-do list.</p>
+</li>
+<li>
+<p>Justification: This feature is key to a functioning to-do list, where users can keep track of the status of his/her tasks.</p>
+</li>
+<li>
+<p>Highlights: This enhancement enables commands like viewing a filtered list based on task&#8217;s status.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to view a filtered list of tasks</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The command allows the user to view a list of tasks based on task&#8217;s status.</p>
+</li>
+<li>
+<p>Justification: This feature improves the user experience and efficiency as it helps the user in navigating through all of the tasks in the to-do list. Users can now easily separate out uncompleted tasks from completed task.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: updated application icon and application name to reflect on our product</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: modified console messages in the application to enhance user experience</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,20 +92,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Set up team organisation on GitHub</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Set up and managed GitHub issue tracker and labels</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Set up and managed milestones on GitHub</p>
+</li>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.3.1</code> (3 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -76,26 +111,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
+<p>Updated README document to reflect our application</p>
 </li>
 <li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Updated the About Us page to reflect our team members</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Restructured commands listing in section 3 &amp; 5 of the User Guide</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Updated class diagrams for model and storage components in Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -105,10 +130,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+<p>Set up Travis CI for the team repo</p>
 </li>
 <li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Set up Coveralls for the team repo</p>
+</li>
+<li>
+<p>Set up Codacy for the team repo</p>
+</li>
+<li>
+<p>Set up auto-publishing of documentations for the team repo</p>
 </li>
 </ul>
 </div>
@@ -117,9 +148,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +164,236 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="adding-a-task-code-tdl_add-code"><a class="link" href="#adding-a-task-code-tdl_add-code">Adding a task: <code>TDL_add</code></a></h3>
+<div class="paragraph">
+<p>Adds a task to the to-do list<br>
+Format: <code>TDL_add t/TASK m/MODULE d/DATE p/PRIORITY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The format for <code>m/MODULE</code> tag is controlled by the list of modules availble in the application. Hence, only valid NUS module codes are allowed. [Coming in v1.4]</p>
+</li>
+<li>
+<p>Currently, the format for <code>m/MODULE</code> tag is strictly 2 alphabetic characters (upper or lower case) followed by 4 numbers.</p>
+</li>
+<li>
+<p>The format for <code>d/DATE</code> tag must be <code>DD-MM</code>, where <code>DD</code> refers to the date and <code>MM</code> refers to the month in numbers.</p>
+</li>
+<li>
+<p>The <code>p/PRIORITY</code> tag only accepts integer 1, 2 or 3, where <code>1</code> refers to highest importance and <code>3</code> refers to lowest importance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_add t/Tutorial 5 m/CS2101 d/12-09 p/1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task-code-tdl_edit-code"><a class="link" href="#editing-a-task-code-tdl_edit-code">Editing a task : <code>TDL_edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing task in the to-do list.<br>
+Format: <code>TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the task at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed tasks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields should be provided. There will not be any changes made if no optional fields are provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>You can remove any task’s date or priority by typing <code>d/</code> or <code>p/</code> without specifying any fields after it. [Coming in v2.0]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_edit 1 t/Tutorial 2 m/CS2113</code><br>
+Edits the task name and module code of the 1st task to be <code>Tutorial 2</code> and <code>CS2113</code> respectively.</p>
+</li>
+<li>
+<p><code>TDL_edit 2 t/Tutorial 2 d/ p/</code><br>
+[Coming in v2.0] Edits the task name of the 2nd task to be <code>Tutorial 2</code> and clears all existing deadlines and priority tags associated with this task.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task-code-tdl_delete-code"><a class="link" href="#deleting-a-task-code-tdl_delete-code">Deleting a task : <code>TDL_delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified task from the to-do list.<br>
+Format: <code>TDL_delete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the task at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed tasks list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_delete 2</code><br>
+Deletes the 2nd task in the to-do list.</p>
+</li>
+<li>
+<p><code>TDL_delete 1</code><br>
+Deletes the 1st task in the to-do list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-task-as-completed-code-tdl_complete-code"><a class="link" href="#marking-a-task-as-completed-code-tdl_complete-code">Marking a task as completed: <code>TDL_complete</code></a></h3>
+<div class="paragraph">
+<p>Marks the specified task in the to-do list as completed.<br>
+Format: <code>TDL_complete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Mark the task at the specified <code>INDEX</code> as <code>completed</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed tasks list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_complete 3</code><br>
+The 3rd task in the to-do list is now marked as completed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-task-as-uncompleted-code-tdl_uncomplete-code"><a class="link" href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">Marking a task as uncompleted: <code>TDL_uncomplete</code></a></h3>
+<div class="paragraph">
+<p>Marks the specific task in the to-do list as uncompleted.<br>
+Format: <code>TDL_uncomplete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Mark the task at the specified <code>INDEX</code> as <code>uncompleted</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed tasks list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_uncomplete 3</code><br>
+The 3rd task in the to-do list is now marked as uncompleted.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-tasks-code-tdl_view-code"><a class="link" href="#viewing-tasks-code-tdl_view-code">Viewing tasks : <code>TDL_view</code></a></h3>
+<div class="paragraph">
+<p>Shows a filtered list of tasks in the to-do list.<br>
+Format: <code>TDL_view PARAMETER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>PARAMETER is either <code>completed</code>, <code>uncompleted</code> or <code>all</code>.</p>
+</li>
+<li>
+<p>The default view for the to-do list upon starting up is <em>all tasks</em>.</p>
+</li>
+<li>
+<p>Performing <code>TDL_view uncompleted</code> with the to-do list displaying <em>uncompleted tasks</em> will not result in any changes. The same is applied to <em>completed tasks</em> list with <code>TDL_view completed</code> command.</p>
+</li>
+<li>
+<p>The GUI should allow the user to understand which list they are currently looking at. [Coming in v2.0]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TDL_view completed</code><br>
+The list is now populated with tasks marked as completed.</p>
+</li>
+<li>
+<p><code>TDL_view all</code><br>
+The list is now populated with all tasks regardless of their completion status.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -152,198 +410,51 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="completing-uncompleting-a-task-feature"><a class="link" href="#completing-uncompleting-a-task-feature">Completing/Uncompleting a Task feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
+<p>Marking of a task as <code>completed</code> or <code>uncompleted</code> uses both <code>Logic</code> and <code>Model</code> components.
+Both commands are similiar in most areas, the key differences are in the respective <code>Command</code> classes.
+This feature reuses the methods in the <code>Model</code> component used by the edit task command.</p>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>The following sequence diagram shows how the <code>TDL_complete</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<img src="../images/CompleteUncompleteTaskSequenceDiagram.png" alt="CompleteUncompleteTaskSequenceDiagram" width="800">
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-methods-to-support-the-completed-uncompleted-commands"><a class="link" href="#aspect-methods-to-support-the-completed-uncompleted-commands">Aspect: Methods to support the completed/uncompleted commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Reuses the same methods available in <code>Model</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Easy to implement with no modification to <code>Model</code> component.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: May have performance issues in terms of memory usage due to an additional <code>Task</code> object.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Create additional methods in <code>Model</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Should use less memory.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: We must ensure that the implementation of each individual methods are correct.</p>
 </li>
 </ul>
 </div>
@@ -354,19 +465,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<h3 id="viewing-tasks-feature"><a class="link" href="#viewing-tasks-feature">Viewing Tasks feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
+
 </div>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:02:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:19:01 UTC</div></div></div></body></html>

@@ -178,13 +178,16 @@ Format: <code>TDL_add t/TASK m/MODULE d/DATE p/PRIORITY</code></p>
 <p>The format for <code>m/MODULE</code> tag is controlled by the list of modules availble in the application. Hence, only valid NUS module codes are allowed. [Coming in v1.4]</p>
 </li>
 <li>
-<p>Currently, the format for <code>m/MODULE</code> tag is strictly 2 alphabetic characters (upper or lower case) followed by 4 numbers.</p>
+<p>Currently, the format for <code>m/MODULE</code> tag is strictly 2 alphabetic characters (upper or lower case) followed by 4 numbers. For module codes with an additional character at the end that denotes a variant of a module, do remember to drop this character.</p>
 </li>
 <li>
 <p>The format for <code>d/DATE</code> tag must be <code>DD-MM</code>, where <code>DD</code> refers to the date and <code>MM</code> refers to the month in numbers.</p>
 </li>
 <li>
 <p>The <code>p/PRIORITY</code> tag only accepts integer 1, 2 or 3, where <code>1</code> refers to highest importance and <code>3</code> refers to lowest importance.</p>
+</li>
+<li>
+<p>Duplicated tasks with the same name and module code are not allowed.</p>
 </li>
 </ul>
 </div>
@@ -215,7 +218,7 @@ Format: <code>TDL_edit INDEX [t/TASK] [m/MODULE] [d/DATE] [p/PRIORITY]</code></p
 <p>Edits the task at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed tasks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>At least one of the optional fields should be provided. There will not be any changes made if no optional fields are provided.</p>
+<p>At least one of the optional fields should be provided. There will not be any changes made if no optional fields are provided and the edit will still be considered as successful.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
@@ -479,4 +482,4 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 07:17:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 06:00:22 UTC</div></div></div></body></html>

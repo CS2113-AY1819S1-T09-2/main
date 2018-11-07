@@ -21,17 +21,18 @@
 <li><a href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">3.6. Marking a task as uncompleted: <code>TDL_uncomplete</code></a></li>
 <li><a href="#viewing-tasks-code-tdl_view-code">3.7. Viewing tasks : <code>TDL_view</code></a></li>
 <li><a href="#sorting-tasks-code-tdl_sort-code">3.8. Sorting tasks : <code>TDL_sort</code></a></li>
-<li><a href="#adding-an-expenditure-code-et_add-code">3.9. Adding an expenditure : <code>ET_add</code></a></li>
-<li><a href="#editing-an-expenditure-code-et_edit-code">3.10. Editing an expenditure : <code>ET_edit</code></a></li>
-<li><a href="#deleting-an-expenditure-code-et_delete-code">3.11. Deleting an expenditure : <code>ET_delete</code></a></li>
-<li><a href="#viewing-expenditures-code-et_view-code">3.12. Viewing expenditures : <code>ET_view</code></a></li>
-<li><a href="#checking-expenditures-code-et_check-code">3.13. Checking expenditures : <code>ET_check</code></a></li>
-<li><a href="#getting-advice-for-spending-money-code-et_advice-code">3.14. Getting advice for spending money : <code>ET_advice</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.16. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.17. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.19. Saving the data</a></li>
+<li><a href="#deadline-notification-default-by-system">3.9. Deadline notification : (default by system)</a></li>
+<li><a href="#adding-an-expenditure-code-et_add-code">3.10. Adding an expenditure : <code>ET_add</code></a></li>
+<li><a href="#editing-an-expenditure-code-et_edit-code">3.11. Editing an expenditure : <code>ET_edit</code></a></li>
+<li><a href="#deleting-an-expenditure-code-et_delete-code">3.12. Deleting an expenditure : <code>ET_delete</code></a></li>
+<li><a href="#viewing-expenditures-code-et_view-code">3.13. Viewing expenditures : <code>ET_view</code></a></li>
+<li><a href="#checking-expenditures-code-et_check-code">3.14. Checking expenditures : <code>ET_check</code></a></li>
+<li><a href="#getting-advice-for-spending-money-code-et_advice-code">3.15. Getting advice for spending money : <code>ET_advice</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.17. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.18. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -405,7 +406,38 @@ All uncompleted tasks will be sorted by their priority level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-expenditure-code-et_add-code"><a class="link" href="#adding-an-expenditure-code-et_add-code">3.9. Adding an expenditure : <code>ET_add</code></a></h3>
+<h3 id="deadline-notification-default-by-system"><a class="link" href="#deadline-notification-default-by-system">3.9. Deadline notification : (default by system)</a></h3>
+<div class="paragraph">
+<p>Notify when the deadline of tasks come in the following seven days<br>
+No commands required</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The name of "urgent" tasks will turn yellow.</p>
+</li>
+<li>
+<p>The sum of "urgent" tasks will form a notification sentence after each operation.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Unavailable for this feature)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-expenditure-code-et_add-code"><a class="link" href="#adding-an-expenditure-code-et_add-code">3.10. Adding an expenditure : <code>ET_add</code></a></h3>
 <div class="paragraph">
 <p>Adds an expenditure to Expenditure Tracker<br>
 Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
@@ -442,7 +474,7 @@ Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-expenditure-code-et_edit-code"><a class="link" href="#editing-an-expenditure-code-et_edit-code">3.10. Editing an expenditure : <code>ET_edit</code></a></h3>
+<h3 id="editing-an-expenditure-code-et_edit-code"><a class="link" href="#editing-an-expenditure-code-et_edit-code">3.11. Editing an expenditure : <code>ET_edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing expenditure in the Expenditure Tracker.<br>
 Format: <code>ET_edit INDEX [e/DESCRIPTION] [d/DATE] [m/MONEY] [c/CATEGORY]</code></p>
@@ -481,7 +513,7 @@ Edits the expenditure date and category of the 2nd expenditure to be <code>09-12
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-expenditure-code-et_delete-code"><a class="link" href="#deleting-an-expenditure-code-et_delete-code">3.11. Deleting an expenditure : <code>ET_delete</code></a></h3>
+<h3 id="deleting-an-expenditure-code-et_delete-code"><a class="link" href="#deleting-an-expenditure-code-et_delete-code">3.12. Deleting an expenditure : <code>ET_delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified expenditure from the Expenditure Tracker.<br>
 Format: <code>ET_delete INDEX</code></p>
@@ -520,7 +552,7 @@ Deletes the 1st expenditure in the Expenditure Tracker.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-expenditures-code-et_view-code"><a class="link" href="#viewing-expenditures-code-et_view-code">3.12. Viewing expenditures : <code>ET_view</code></a></h3>
+<h3 id="viewing-expenditures-code-et_view-code"><a class="link" href="#viewing-expenditures-code-et_view-code">3.13. Viewing expenditures : <code>ET_view</code></a></h3>
 <div class="paragraph">
 <p>Shows a filtered list of expenditures in the expenditure tracker.<br>
 Format: <code>ET_view PARAMETER</code></p>
@@ -566,7 +598,7 @@ The list is now populated with all expenditures regardless of their date or cate
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-expenditures-code-et_check-code"><a class="link" href="#checking-expenditures-code-et_check-code">3.13. Checking expenditures : <code>ET_check</code></a></h3>
+<h3 id="checking-expenditures-code-et_check-code"><a class="link" href="#checking-expenditures-code-et_check-code">3.14. Checking expenditures : <code>ET_check</code></a></h3>
 <div class="paragraph">
 <p>Checks the status of the expenditures in a particular period and generates a pie-chart to demonstrate how much money was spent on each unit period.<br>
 Format: <code>ET_check start/STARTDATE end/ENDDATE</code></p>
@@ -598,7 +630,7 @@ Checks the status of the expenditures from 01-01-2017 to 01-01-2018 and generate
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-advice-for-spending-money-code-et_advice-code"><a class="link" href="#getting-advice-for-spending-money-code-et_advice-code">3.14. Getting advice for spending money : <code>ET_advice</code></a></h3>
+<h3 id="getting-advice-for-spending-money-code-et_advice-code"><a class="link" href="#getting-advice-for-spending-money-code-et_advice-code">3.15. Getting advice for spending money : <code>ET_advice</code></a></h3>
 <div class="paragraph">
 <p>Gives a short summary of the expenditures made so far and provides advice on how to spend a particular amount of money in a given period of time.<br>
 Format: <code>ET_advice m/MONEY numofdays/NUMBEROFDAYS</code></p>
@@ -634,7 +666,7 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -655,7 +687,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-coming-in-v1-4"><a class="link" href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.16. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></h3>
+<h3 id="undoing-previous-command-code-undo-code-coming-in-v1-4"><a class="link" href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.17. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -688,7 +720,7 @@ Format: <code>undo</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.17. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.18. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -707,14 +739,14 @@ Format: <code>redo</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>All to-do list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -810,4 +842,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 13:54:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 11:45:37 UTC</div></div></div></body></html>

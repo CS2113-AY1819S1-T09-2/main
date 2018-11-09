@@ -159,18 +159,33 @@ All uncompleted tasks will be sorted by their priority level.</p>
 <div class="sect2">
 <h3 id="deadline-notification-default-by-system"><a class="link" href="#deadline-notification-default-by-system">Deadline notification : (default by system)</a></h3>
 <div class="paragraph">
-<p>Notify when the deadline of tasks come in the following seven days<br>
-No commands required</p>
+<p>Notify when the deadline of uncompleted tasks come in the following seven days
+or the deadline of uncompleted tasks have passed<br>
+No commands input required</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The name of "urgent" tasks will turn yellow.</p>
+<p>If one task is uncompleted and its deadline has passed, the color of id, task name, deadline time
+and module code will turn into red</p>
 </li>
 <li>
-<p>The sum of "urgent" tasks will form a notification sentence after each operation.</p>
+<p>If one task is uncompleted and its deadline comes within seven days, the color of id, task name,
+deadline time and module code will turn into yellow</p>
+</li>
+<li>
+<p>The color of task status is red for "completed" and green for "uncompleted"</p>
+</li>
+<li>
+<p>The "current time" is as same as system time</p>
+</li>
+<li>
+<p>We currently assume all tasks are all in the same year. (follow the system time)</p>
+</li>
+<li>
+<p>We will fix the year issue in the future release. (fix in V2.1)</p>
 </li>
 </ul>
 </div>
@@ -179,13 +194,75 @@ No commands required</p>
 <div class="paragraph">
 <p>Example:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deadline_notification.png" alt="deadline notification" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>As shown above (current date: 9.Nov)</p>
+</div>
+<div class="paragraph">
+<p>No command related example available</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar"><a class="link" href="#calendar">Calendar</a></h3>
+<div class="paragraph">
+<p>A GUI related feature, user can easily get date information from calendar GUI and the calendar will
+automatically show the calendar for this month.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>(Unavailable for this feature)</p>
+<p>"this month" follow the system time.</p>
+</li>
+<li>
+<p>User can view tasks and spending on a certain day by clicking the calendar GUI.
+(come in V2.1)</p>
+</li>
+<li>
+<p>User can switch the calendar view (from this month to the next month &#8230;&#8203;)
+(come in V2.1)</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Calendar.png" alt="Calendar" width="450">
+</div>
+</div>
+<div class="paragraph">
+<p>As shown above (screenshot from GUI)</p>
+</div>
+<div class="paragraph">
+<p>No Click event related examples available now.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data files it creates with the files that contains the data in your previous data folder.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How can I run this product in Linux terminal/ Dos terminal?<br>
+<strong>A</strong>: After installing/ updating the java package, you can run <code>java -jar something.jar</code> in terminal.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can I import my to-do list related or expenditure tracker related information into your product in certain form?<br>
+<strong>A</strong>: At present, you cannot import any related information from other sources, we are considering to add
+a feature in future release to help users to import information from other sources by csv files.</p>
 </div>
 </div>
 </div>
@@ -251,4 +328,4 @@ from List&lt;&gt;.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 04:35:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 11:38:19 UTC</div></div></div></body></html>

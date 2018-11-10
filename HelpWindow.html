@@ -21,19 +21,20 @@
 <li><a href="#marking-a-task-as-uncompleted-code-tdl_uncomplete-code">3.6. Marking a task as uncompleted: <code>TDL_uncomplete</code></a></li>
 <li><a href="#viewing-tasks-code-tdl_view-code">3.7. Viewing tasks : <code>TDL_view</code></a></li>
 <li><a href="#sorting-tasks-code-tdl_sort-code">3.8. Sorting tasks : <code>TDL_sort</code></a></li>
-<li><a href="#deadline-notification-default-by-system">3.9. Deadline notification : (default by system)</a></li>
+<li><a href="#deadline-gui-notification">3.9. Deadline GUI notification</a></li>
 <li><a href="#adding-an-expenditure-code-et_add-code">3.10. Adding an expenditure : <code>ET_add</code></a></li>
 <li><a href="#editing-an-expenditure-code-et_edit-code">3.11. Editing an expenditure : <code>ET_edit</code></a></li>
 <li><a href="#deleting-an-expenditure-code-et_delete-code">3.12. Deleting an expenditure : <code>ET_delete</code></a></li>
 <li><a href="#viewing-expenditures-code-et_view-code">3.13. Viewing expenditures : <code>ET_view</code></a></li>
 <li><a href="#checking-expenditures-code-et_check-code">3.14. Checking expenditures : <code>ET_check</code></a></li>
 <li><a href="#getting-advice-for-spending-money-code-et_advice-code">3.15. Getting advice for spending money : <code>ET_advice</code></a></li>
-<li><a href="#calendar">3.16. Calendar</a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.17. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.18. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.19. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.21. Saving the data</a></li>
+<li><a href="#calendar-gui">3.16. Calendar GUI</a></li>
+<li><a href="#view-daily-summary-code-check-code">3.17. View daily summary : <code>check</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.18. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-coming-in-v2-0">3.19. Undoing previous command : <code>undo</code> [Coming in v2.0]</a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v2-0">3.20. Redoing the previously undone command : <code>redo</code> [Coming in v2.0]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.22. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -142,7 +143,7 @@ Format: <code>TDL_add t/TASK m/MODULE d/DATE p/PRIORITY</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The format for <code>m/MODULE</code> tag is controlled by the list of modules availble in the application. Hence, only valid NUS module codes are allowed. [Coming in v1.4]</p>
+<p>The format for <code>m/MODULE</code> tag is controlled by the list of modules availble in the application. Hence, only valid NUS module codes are allowed. [Coming in v2.0]</p>
 </li>
 <li>
 <p>Currently, the format for <code>m/MODULE</code> tag is strictly 2 alphabetic characters (upper or lower case) followed by 4 numbers. For module codes with an additional character at the end that denotes a variant of a module, do remember to drop this character.</p>
@@ -367,7 +368,7 @@ The list is now populated with all tasks regardless of their completion status.<
 <div class="sect2">
 <h3 id="sorting-tasks-code-tdl_sort-code"><a class="link" href="#sorting-tasks-code-tdl_sort-code">3.8. Sorting tasks : <code>TDL_sort</code></a></h3>
 <div class="paragraph">
-<p>Sorts and displays the to-do list by a certain tag.<br>
+<p>Sorts and displays the to-do list by a certain task parameter.<br>
 Format: <code>TDL_sort PARAMETER</code></p>
 </div>
 <div class="sidebarblock">
@@ -378,16 +379,13 @@ Format: <code>TDL_sort PARAMETER</code></p>
 <p>PARAMETER is either <code>module</code>, <code>date</code> or <code>priority</code>.</p>
 </li>
 <li>
-<p>PARAMETER can be set as <code>default</code> and tasks will be sorted alphabetically by their names.</p>
+<p>PARAMETER can be set as <code>default</code> and tasks will be sorted alphabetically by their names regardless of upper/lower cases.</p>
 </li>
 <li>
 <p>PARAMETER can also be set as <code>reverse</code> and the former order of tasks will be reversed.</p>
 </li>
 <li>
 <p>Users can use <code>TDL_sort</code> after <code>TDL_view</code> for sorting certain tasks (completed/uncompleted).</p>
-</li>
-<li>
-<p>There is no sequential order between upper case and lower case.</p>
 </li>
 </ul>
 </div>
@@ -410,35 +408,29 @@ All uncompleted tasks will be sorted by their priority level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deadline-notification-default-by-system"><a class="link" href="#deadline-notification-default-by-system">3.9. Deadline notification : (default by system)</a></h3>
+<h3 id="deadline-gui-notification"><a class="link" href="#deadline-gui-notification">3.9. Deadline GUI notification</a></h3>
 <div class="paragraph">
-<p>Notify when the deadline of uncompleted tasks come in the following seven days
-or the deadline of uncompleted tasks have passed<br>
-No commands input required</p>
+<p>Notify when the uncompleted tasks is due within the following seven days from the current time or when the deadline of uncompleted tasks have passed.<br>
+No command inputs are required.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>If one task is uncompleted and its deadline has passed, the color of id, task name, deadline time
-and module code will turn into red</p>
+<p>If one task is uncompleted and its deadline has passed, the colour of index, task name, module code, deadline date and priority will turn into red.</p>
 </li>
 <li>
-<p>If one task is uncompleted and its deadline comes within seven days, the color of id, task name,
-deadline time and module code will turn into yellow</p>
+<p>If one task is uncompleted and its deadline comes within seven days, the colour of index, task name, module code, due date and priority will turn into yellow.</p>
 </li>
 <li>
-<p>The color of task status is red for "completed" and green for "uncompleted"</p>
+<p>The <em>current time</em> in the application is the same as system time.</p>
 </li>
 <li>
-<p>The "current time" is as same as system time</p>
+<p>All tasks are currently assumed to be in the same year of 2018.</p>
 </li>
 <li>
-<p>We currently assume all tasks are all in the same year. (follow the system time)</p>
-</li>
-<li>
-<p>We will fix the year issue in the future release. (fix in V2.1)</p>
+<p>Only the year 2018 is supported for now, future releases will support future years. [Coming in v2.0]</p>
 </li>
 </ul>
 </div>
@@ -453,10 +445,10 @@ deadline time and module code will turn into yellow</p>
 </div>
 </div>
 <div class="paragraph">
-<p>As shown above (current date: 9.Nov)</p>
+<p>As shown above (current date: 9th Nov 2018)</p>
 </div>
 <div class="paragraph">
-<p>No command related example available</p>
+<p>No command related examples are available.</p>
 </div>
 </div>
 <div class="sect2">
@@ -480,6 +472,9 @@ Format: <code>ET_add e/DESCRIPTION d/DATE m/MONEY c/CATEGORY</code></p>
 </li>
 <li>
 <p>The format for <code>c/CATEGORY</code> must be one of the following: Food, Drink, Clothing, Electronics, DailyNecessities, Sports, Communications, Travels, Study, Office, Pets, Gifts, Entertainment, Traffic, Shopping, Beauty, Furniture.</p>
+</li>
+<li>
+<p>Duplicated expenses are allowed.</p>
 </li>
 </ul>
 </div>
@@ -689,32 +684,29 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar"><a class="link" href="#calendar">3.16. Calendar</a></h3>
+<h3 id="calendar-gui"><a class="link" href="#calendar-gui">3.16. Calendar GUI</a></h3>
 <div class="paragraph">
-<p>A GUI related feature, user can easily get date information from calendar GUI and the calendar will
-automatically show the calendar for this month.</p>
+<p>A GUI related feature, the calendar will automatically show the full calendar for this current month and the current date.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>"this month" follow the system time.</p>
+<p>The current month shown follows the system time.</p>
 </li>
 <li>
-<p>User can view tasks and spending on a certain day by clicking the calendar GUI.
-(come in V2.1)</p>
+<p>A summary of all tasks due and spendings on a certain day will be shown by clicking on the calendar GUI. [Coming in v2.0]</p>
 </li>
 <li>
-<p>User can switch the calendar view (from this month to the next month &#8230;&#8203;)
-(come in V2.1)</p>
+<p>User can switch the calendar view from the current month to the next or previous months. [Coming in v2.0]</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -725,11 +717,46 @@ automatically show the calendar for this month.</p>
 <p>As shown above (screenshot from GUI)</p>
 </div>
 <div class="paragraph">
-<p>No Click event related examples available now.</p>
+<p>No click-event related examples available now.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.17. Listing entered commands : <code>history</code></a></h3>
+<h3 id="view-daily-summary-code-check-code"><a class="link" href="#view-daily-summary-code-check-code">3.17. View daily summary : <code>check</code></a></h3>
+<div class="paragraph">
+<p>View a summary of all due tasks and all expenses on a particular day.<br>
+Format: <code>check d/DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The format for <code>d/DATE</code> must be DD-MM-YYYY, where DD refers to the date, MM refers to the month and YYYY refers to the year in numbers.</p>
+</li>
+<li>
+<p>The summary uses user&#8217;s data from both the to-do list and the expenditure tracker. It will be empty if no data can be retrieved.</p>
+</li>
+<li>
+<p>The command can also be executed by clicking on a particular day in the calendar GUI. [Coming v2.0]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check d/10-11-2018</code><br>
+A summary of all due tasks and all expenses on <code>10-11-2018</code> is shown.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.18. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -750,7 +777,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-coming-in-v1-4"><a class="link" href="#undoing-previous-command-code-undo-code-coming-in-v1-4">3.18. Undoing previous command : <code>undo</code> [Coming in v1.4]</a></h3>
+<h3 id="undoing-previous-command-code-undo-code-coming-in-v2-0"><a class="link" href="#undoing-previous-command-code-undo-code-coming-in-v2-0">3.19. Undoing previous command : <code>undo</code> [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -783,7 +810,7 @@ Format: <code>undo</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v1-4">3.19. Redoing the previously undone command : <code>redo</code> [Coming in v1.4]</a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code-coming-in-v2-0"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-coming-in-v2-0">3.20. Redoing the previously undone command : <code>redo</code> [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -802,14 +829,14 @@ Format: <code>redo</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>All to-do list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -825,26 +852,24 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data files it creates with the files that contains the data in your previous data folder.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How can I run this product in Linux terminal/ Dos terminal?<br>
-<strong>A</strong>: After installing/ updating the java package, you can run <code>java -jar something.jar</code> in terminal.</p>
+<p><strong>Q</strong>: How can I run this product in Linux terminal/Dos terminal?<br>
+<strong>A</strong>: After installing/updating the java package, you can run <code>java -jar somethingdaily.jar</code> in terminal.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: Can I import my to-do list related or expenditure tracker related information into your product in certain form?<br>
-<strong>A</strong>: At present, you cannot import any related information from other sources, we are considering to add
-a feature in future release to help users to import information from other sources by csv files.</p>
+<p><strong>Q</strong>: Can I import my to-do list related or expenditure tracker related data into your application?<br>
+<strong>A</strong>: At current release, you cannot import any related data from other sources. However, our team is considering to add a feature in future release to help users in importing data from other sources by CSV files.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: When I run this product, it shows that <code>java.lang.NoClassDefFoundError: javafx/application/Application error</code>.
-<strong>A</strong>: You are missing javafx, you can run our product after installing it with <code>sudo apt install openjfx</code>.</p>
+<p><strong>Q</strong>: When I run this application, it shows <code>java.lang.NoClassDefFoundError: javafx/application/Application error</code>.<br>
+<strong>A</strong>: You are missing JavaFX, you can run our application after installing it with <code>sudo apt install openjfx</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How can I read User Guide in the interface of your product?<br>
-<strong>A</strong>: We can just key in <code>help</code> command to read this User Guide.</p>
+<p><strong>Q</strong>: How can I read the User Guide in the interface of your product?<br>
+<strong>A</strong>: You can simply use the <code>help</code> command to read this User Guide.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How can I update this software if you release its latest version?<br>
-<strong>A</strong>: We do not have incrementally upgrading right now, so users may can only get the latest release from GitHub directly
-and we are also considering to use API from Google to implement the OTA upgrading in future release.</p>
+<p><strong>Q</strong>: How can I update the application if you release a new version?<br>
+<strong>A</strong>: Unfortunately, we do not support incremental updates right now, so users can only obtain the latest release from our GitHub directly. We are considering to use API from Google to implement over-the-air updating in future release.</p>
 </div>
 </div>
 </div>
@@ -860,13 +885,16 @@ and we are also considering to use API from Google to implement the OTA upgradin
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
+<p><strong>Check</strong> : <code>check d/DATE</code></p>
+</li>
+<li>
 <p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
-<p><strong>Undo</strong> : <code>undo</code> [Coming in v1.4]</p>
+<p><strong>Undo</strong> : <code>undo</code> [Coming in v2.0]</p>
 </li>
 <li>
-<p><strong>Redo</strong> : <code>redo</code> [Coming in v1.4]</p>
+<p><strong>Redo</strong> : <code>redo</code> [Coming in v2.0]</p>
 </li>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
@@ -927,4 +955,4 @@ and we are also considering to use API from Google to implement the OTA upgradin
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 16:03:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 06:47:52 UTC</div></div></div></body></html>

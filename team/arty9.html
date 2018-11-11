@@ -448,13 +448,20 @@ A summary of all due tasks and all expenses on <code>10-11-2018</code> is shown.
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="completing-uncompleting-a-task-feature"><a class="link" href="#completing-uncompleting-a-task-feature">Completing/Uncompleting a Task feature</a></h3>
+<h3 id="completing-uncompleting-a-task-feature"><a class="link" href="#completing-uncompleting-a-task-feature">Completing/Uncompleting a task feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>Marking of a task as <code>completed</code> or <code>uncompleted</code> uses both <code>Logic</code> and <code>Model</code> components.
-Both commands are similiar in most areas, the key differences are in the respective <code>Command</code> classes.
-This feature reuses the methods in the <code>Model</code> component used by the edit task command.</p>
+Both <code>TDL_complete</code> and <code>TDL_uncomplete</code> commands are similar in most areas as they are implemented based on the edit task command.
+This feature also reuses the methods in the <code>Model</code> component used by the edit task command.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The parameter of the commands is the index of the to-do list.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>TDL_complete</code> operation works:</p>
@@ -463,6 +470,30 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="content">
 <img src="../images/CompleteUncompleteTaskSequenceDiagram.png" alt="CompleteUncompleteTaskSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Step 1. Upon user&#8217;s input, <code>AddressBookParser</code> determines if the command entered by the user is valid and then calls the appropriate <code>CommandParser</code> class. The arguments are also passed to the <code>CommandParser</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>CompleteTaskCommandParser</code> or <code>UncompleteTaskCommandParser</code> will use the arguments given to retrieve and check if the index is valid. <code>CompleteTaskCommand</code> or <code>UncompleteTaskCommand</code> will then be called respectively by the parser class.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>Command</code> class will check for the validity of the index based on the currently shown to-do list and also the completion status of the specific task to be modified.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Completion status of the task needs to be checked as we want to prevent cases where the command does not change the completion status, ie. performing <code>TDL_complete</code> on a task already marked as completed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. Similar to the edit task command, the task to be modified is updated using <code>Model#updateTask()</code> with a new task. The new task object is a copy of the task to be modified with the completion status changed.</p>
 </div>
 </div>
 <div class="sect3">
@@ -476,10 +507,10 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement with no modification to <code>Model</code> component.</p>
+<p>Pros: Easy to implement with little to no modifications to the <code>Model</code> component.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage due to an additional <code>Task</code> object.</p>
+<p>Cons: May cause confusion since the same methods in the <code>Model</code> component are used by different commands with similar implementations.</p>
 </li>
 </ul>
 </div>
@@ -489,10 +520,10 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Should use less memory.</p>
+<p>Pros: Should create less confusion as these methods are only used by a unique command.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual methods are correct.</p>
+<p>Cons: We must ensure that the implementation of each individual method is correct.</p>
 </li>
 </ul>
 </div>
@@ -503,18 +534,78 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-tasks-feature"><a class="link" href="#viewing-tasks-feature">Viewing Tasks feature</a></h3>
+<h3 id="viewing-filtered-tasks-feature"><a class="link" href="#viewing-filtered-tasks-feature">Viewing filtered tasks feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-
+<div class="paragraph">
+<p>Viewing a filtered task list uses both <code>Logic</code> and <code>Model</code> components.
+This feature reuses the existing <code>Model#updateFilteredTaskList()</code> method to update the filter to be used.
+We create two new predicates to either retrieve all completed tasks or all uncompleted tasks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each predicate evaluates to true based on the completion status of the tasks.</p>
+</li>
+<li>
+<p>The parameter of this command is either 'all', 'completed' or 'uncompleted'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>TDL_view uncompleted</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ViewTaskSequenceDiagram.png" alt="ViewTaskSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 1. Upon user&#8217;s input, <code>AddressBookParser</code> determines if the command entered by the user is valid and then calls the <code>ViewTaskCommandParser</code> class. The arguments are also passed to this class.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Since the parameter for this command is a string, the argument is trimmed and checked in the <code>ViewTaskCommandParser</code> class. The string is then passed to the <code>ViewTaskCommand</code> class to be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Depending on the filter, <code>ViewTaskCommand</code> class will use the <code>Model#updateFilteredTaskList()</code> method with the appropriate predicate and update the list of task to be shown.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
-
+<h5 id="aspect-how-the-feature-is-implemented"><a class="link" href="#aspect-how-the-feature-is-implemented">Aspect: How the feature is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Reuses the same method available in <code>Model</code> with new predicates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement with little modifications to the <code>Model</code> component.</p>
+</li>
+<li>
+<p>Cons: <code>ViewTaskCommand</code> class needs to handle three different cases, each with its own result and output.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Saves all variation of the filtered task list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Each filtered task list is readily available and easily obtainable.</p>
+</li>
+<li>
+<p>Cons: Whenever there is a change to the task list, we need to ensure that all lists are updated accordingly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:49:16 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:32:28 UTC</div></div></div></body></html>

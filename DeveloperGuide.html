@@ -30,15 +30,15 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#completing-uncompleting-a-task-feature">3.2. Completing/Uncompleting a Task feature</a></li>
-<li><a href="#viewing-tasks-feature">3.3. Viewing Tasks feature</a></li>
+<li><a href="#completing-uncompleting-a-task-feature">3.2. Completing/Uncompleting a task feature</a></li>
+<li><a href="#viewing-filtered-tasks-feature">3.3. Viewing filtered tasks feature</a></li>
 <li><a href="#sort-to-do-list">3.4. Sort To-do list</a></li>
 <li><a href="#deadline-notification">3.5. Deadline Notification</a></li>
 <li><a href="#calendar">3.6. Calendar</a></li>
 <li><a href="#viewing-expenditures-feature">3.7. Viewing expenditures feature</a></li>
 <li><a href="#get-advice">3.8. Get advice</a></li>
 <li><a href="#check-expenditure">3.9. Check Expenditure</a></li>
-<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
+<li><a href="#data-encryption">3.10. Data Encryption</a></li>
 <li><a href="#logging">3.11. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
@@ -392,13 +392,13 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 <h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>TDL_delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePerson.png" alt="SDforDeletePerson" width="800">
+<img src="images/SDforDeleteTask.png" alt="SDforDeleteTask" width="800">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command (part 1)</div>
+<div class="title">Figure 3. Component interactions for <code>TDL_delete 1</code> command (part 1)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -407,7 +407,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the Address Book data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+Note how the <code>Model</code> simply raises a <code>TodoListChangedEvent</code> when the To-do List data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
 </td>
 </tr>
 </table>
@@ -417,9 +417,9 @@ Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePersonEventHandling.png" alt="SDforDeletePersonEventHandling" width="800">
+<img src="images/SDforDeleteTaskEventHandling.png" alt="SDforDeleteTaskEventHandling" width="800">
 </div>
-<div class="title">Figure 4. Component interactions for <code>delete 1</code> command (part 2)</div>
+<div class="title">Figure 4. Component interactions for <code>TDL_delete 1</code> command (part 2)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -500,13 +500,13 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("TDL_delete 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="images/DeleteTaskSdForLogic.png" alt="DeleteTaskSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>TDL_delete 1</code> Command</div>
 </div>
 </div>
 <div class="sect2">
@@ -529,7 +529,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Todo List and Expenditure Tracker data.</p>
+<p>stores the To-do List and Expenditure Tracker data.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Task&gt;</code> and <code>ObservableList&lt;Expenditure&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -560,7 +560,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Todo List and Expenditure Tracker data in xml format and read it back.</p>
+<p>can save the To-do List and Expenditure Tracker data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -582,7 +582,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -718,7 +718,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (proposed choice):</strong> Saves the entire address book.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -751,7 +751,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (proposed choice):</strong> Use a list to store the history of address book states.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -782,13 +782,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="completing-uncompleting-a-task-feature"><a class="link" href="#completing-uncompleting-a-task-feature">3.2. Completing/Uncompleting a Task feature</a></h3>
+<h3 id="completing-uncompleting-a-task-feature"><a class="link" href="#completing-uncompleting-a-task-feature">3.2. Completing/Uncompleting a task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Marking of a task as <code>completed</code> or <code>uncompleted</code> uses both <code>Logic</code> and <code>Model</code> components.
-Both commands are similiar in most areas, the key differences are in the respective <code>Command</code> classes.
-This feature reuses the methods in the <code>Model</code> component used by the edit task command.</p>
+Both <code>TDL_complete</code> and <code>TDL_uncomplete</code> commands are similar in most areas as they are implemented based on the edit task command.
+This feature also reuses the methods in the <code>Model</code> component used by the edit task command.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The parameter of the commands is the index of the to-do list.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>TDL_complete</code> operation works:</p>
@@ -797,6 +804,30 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="content">
 <img src="images/CompleteUncompleteTaskSequenceDiagram.png" alt="CompleteUncompleteTaskSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>Step 1. Upon user&#8217;s input, <code>AddressBookParser</code> determines if the command entered by the user is valid and then calls the appropriate <code>CommandParser</code> class. The arguments are also passed to the <code>CommandParser</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>CompleteTaskCommandParser</code> or <code>UncompleteTaskCommandParser</code> will use the arguments given to retrieve and check if the index is valid. <code>CompleteTaskCommand</code> or <code>UncompleteTaskCommand</code> will then be called respectively by the parser class.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>Command</code> class will check for the validity of the index based on the currently shown to-do list and also the completion status of the specific task to be modified.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Completion status of the task needs to be checked as we want to prevent cases where the command does not change the completion status, ie. performing <code>TDL_complete</code> on a task already marked as completed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. Similar to the edit task command, the task to be modified is updated using <code>Model#updateTask()</code> with a new task. The new task object is a copy of the task to be modified with the completion status changed.</p>
 </div>
 </div>
 <div class="sect3">
@@ -810,10 +841,10 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement with no modification to <code>Model</code> component.</p>
+<p>Pros: Easy to implement with little to no modifications to the <code>Model</code> component.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage due to an additional <code>Task</code> object.</p>
+<p>Cons: May cause confusion since the same methods in the <code>Model</code> component are used by different commands with similar implementations.</p>
 </li>
 </ul>
 </div>
@@ -823,10 +854,10 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Should use less memory.</p>
+<p>Pros: Should create less confusion as these methods are only used by a unique command.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual methods are correct.</p>
+<p>Cons: We must ensure that the implementation of each individual method is correct.</p>
 </li>
 </ul>
 </div>
@@ -837,23 +868,83 @@ This feature reuses the methods in the <code>Model</code> component used by the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-tasks-feature"><a class="link" href="#viewing-tasks-feature">3.3. Viewing Tasks feature</a></h3>
+<h3 id="viewing-filtered-tasks-feature"><a class="link" href="#viewing-filtered-tasks-feature">3.3. Viewing filtered tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
-
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Viewing a filtered task list uses both <code>Logic</code> and <code>Model</code> components.
+This feature reuses the existing <code>Model#updateFilteredTaskList()</code> method to update the filter to be used.
+We create two new predicates to either retrieve all completed tasks or all uncompleted tasks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each predicate evaluates to true based on the completion status of the tasks.</p>
+</li>
+<li>
+<p>The parameter of this command is either 'all', 'completed' or 'uncompleted'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>TDL_view uncompleted</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ViewTaskSequenceDiagram.png" alt="ViewTaskSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 1. Upon user&#8217;s input, <code>AddressBookParser</code> determines if the command entered by the user is valid and then calls the <code>ViewTaskCommandParser</code> class. The arguments are also passed to this class.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Since the parameter for this command is a string, the argument is trimmed and checked in the <code>ViewTaskCommandParser</code> class. The string is then passed to the <code>ViewTaskCommand</code> class to be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Depending on the filter, <code>ViewTaskCommand</code> class will use the <code>Model#updateFilteredTaskList()</code> method with the appropriate predicate and update the list of task to be shown.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
-
+<h5 id="aspect-how-the-feature-is-implemented"><a class="link" href="#aspect-how-the-feature-is-implemented">Aspect: How the feature is implemented</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Reuses the same method available in <code>Model</code> with new predicates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement with little modifications to the <code>Model</code> component.</p>
+</li>
+<li>
+<p>Cons: <code>ViewTaskCommand</code> class needs to handle three different cases, each with its own result and output.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Saves all variation of the filtered task list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Each filtered task list is readily available and easily obtainable.</p>
+</li>
+<li>
+<p>Cons: Whenever there is a change to the task list, we need to ensure that all lists are updated accordingly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="sort-to-do-list"><a class="link" href="#sort-to-do-list">3.4. Sort To-do list</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Sorting tasks in the to-do list uses both <code>Logic</code> and <code>Model</code> components.
 Generally, the implementation of <code>TDL_sort date</code>, <code>TDL_sort priority</code> and <code>TDL_sort module</code> are quite similar,
@@ -907,7 +998,7 @@ from List&lt;&gt;.</p>
 <div class="sect2">
 <h3 id="deadline-notification"><a class="link" href="#deadline-notification">3.5. Deadline Notification</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Deadline Notification in the to-do list uses both <code>Model</code> and <code>UI</code> components.</p>
 </div>
@@ -969,7 +1060,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="sect2">
 <h3 id="calendar"><a class="link" href="#calendar">3.6. Calendar</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Calendar uses both <code>Model</code> and <code>UI</code> components.</p>
 </div>
@@ -1021,7 +1112,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="sect2">
 <h3 id="viewing-expenditures-feature"><a class="link" href="#viewing-expenditures-feature">3.7. Viewing expenditures feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Viewing expenditures in the Expenditure Tracker uses both <code>Logic</code> and <code>Model</code> components.</p>
 </div>
@@ -1073,7 +1164,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="sect2">
 <h3 id="get-advice"><a class="link" href="#get-advice">3.8. Get advice</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Get advice uses both <code>Logic</code> and <code>Model</code> components.</p>
 </div>
@@ -1133,7 +1224,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="sect2">
 <h3 id="check-expenditure"><a class="link" href="#check-expenditure">3.9. Check Expenditure</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Check the total money spent in a specific period uses both Logic and Model components.
 It also generate a chart to show each expenditure in this period on each date.</p>
@@ -1215,9 +1306,12 @@ It also generate a chart to show each expenditure in this period on each date.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
+<h3 id="data-encryption"><a class="link" href="#data-encryption">3.10. Data Encryption</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.10.1. Proposed Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><em>{Implementation of the data encryption feature will be introduced and explained in the near future.}</em></p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2676,7 +2770,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>TDL_sort by mod</code> command</p>
+<p>User enters <code>TDL_sort module</code> command</p>
 </li>
 <li>
 <p>To-do list shows a sorted list of tasks grouped by modules</p>
@@ -2694,7 +2788,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>TDL_sort by ddl</code> command</p>
+<p>User enters <code>TDL_sort date</code> command</p>
 </li>
 <li>
 <p>To-do list shows the all uncompleted modules sorted by deadlines, the task with latest deadline is the first task</p>
@@ -2712,7 +2806,7 @@ To-do list</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>TDL_sort by impt</code> command</p>
+<p>User enters <code>TDL_sort priority</code> command</p>
 </li>
 <li>
 <p>To-do list shows a sorted list of tasks grouped by priority level in descending order</p>
@@ -2824,9 +2918,10 @@ To-do list</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>2a. The list is empty.
-2b. The given index is invalid
-  2b1. To-do list shows an error message</pre>
+<pre>   2a. The list is empty.
+   2b. The given index is invalid
+     2b1. To-do list shows an error message
+// end::taskUseCases[]</pre>
 </div>
 </div>
 <h3 id="use-case-12-receiving-reminders-for-a-task" class="discrete">Use case 12: Receiving reminders for a task</h3>
@@ -2961,7 +3056,7 @@ Expenditure Tracker &amp; Calendar</p>
 <pre>  2a. The list is empty.
   2b. The given index is invalid.
     2b1. To-do list shows an error message
-// end::useCases[]</pre>
+// end::expenditureUseCases[]</pre>
 </div>
 </div>
 </div>
@@ -3150,4 +3245,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:49:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:32:28 UTC</div></div></div></body></html>

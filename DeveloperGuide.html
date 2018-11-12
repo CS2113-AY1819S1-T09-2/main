@@ -35,7 +35,7 @@
 <li><a href="#sort-to-do-list">3.4. Sort To-do list</a></li>
 <li><a href="#deadline-notification">3.5. Deadline Notification</a></li>
 <li><a href="#calendar">3.6. Calendar</a></li>
-<li><a href="#viewing-expenditures-feature">3.7. Viewing expenditures feature</a></li>
+<li><a href="#viewing-filtered-expenditures-feature">3.7. Viewing filtered expenditures feature</a></li>
 <li><a href="#get-advice">3.8. Get advice</a></li>
 <li><a href="#check-expenditure">3.9. Check Expenditure</a></li>
 <li><a href="#data-encryption">3.10. Data Encryption</a></li>
@@ -1106,7 +1106,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to create, no external library or API is needed and pulling data from to-do list and expenditure tracker will be feasible as well.</p>
+<p>Pros: It is easy to create, no external library or API is needed and pulling data from to-do list and expenditure tracker will be feasible as well.</p>
 </li>
 <li>
 <p>Cons: The appearance of calendar may not be that good.</p>
@@ -1122,17 +1122,28 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <p>Pros: The appearance will be better and the calendar will provide more dynamic features.</p>
 </li>
 <li>
-<p>Cons: Need more effort to integrate with our application and pull task and expenditure data from storage.</p>
+<p>Cons: It needs more effort to integrate with our application and pull task and expenditure data from storage.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Here is an image of Google Calendar with other dynamic features provided. For example, user could click on a date and add an event, which is not supported by Java <code>Calendar</code> class by default.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GoogleCalendarImage.png" alt="GoogleCalendarImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>More dynamic features with mouse clicking for the calendar in Something Daily will be implemented in Version 2.0.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-expenditures-feature"><a class="link" href="#viewing-expenditures-feature">3.7. Viewing expenditures feature</a></h3>
+<h3 id="viewing-filtered-expenditures-feature"><a class="link" href="#viewing-filtered-expenditures-feature">3.7. Viewing filtered expenditures feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1150,7 +1161,7 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-methods-to-support-the-view-feature"><a class="link" href="#aspect-methods-to-support-the-view-feature">3.7.2. Aspect: Methods to support the view feature</a></h4>
+<h4 id="aspect-methods-to-support-the-viewing-filtered-expenditures-feature"><a class="link" href="#aspect-methods-to-support-the-viewing-filtered-expenditures-feature">3.7.2. Aspect: Methods to support the viewing filtered expenditures feature</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1158,10 +1169,10 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement, there is no need for sorting functions.</p>
+<p>Pros: It is easy to implement, there is no need for sorting functions.</p>
 </li>
 <li>
-<p>Cons: Need to check all the expenditures in the list with time complexity O(n) which is relatively slow.</p>
+<p>Cons: It needs to check all the expenditures in the list with time complexity O(n) which is relatively slow.</p>
 </li>
 </ul>
 </div>
@@ -1171,10 +1182,10 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster to get the expenditures, we only need to find the first and last appearance of the date or category, all expenditures between start and end will be selected.</p>
+<p>Pros: It is faster to get the expenditures. We only need to find the first and last appearance of the date or category, all expenditures between start and end will be selected.</p>
 </li>
 <li>
-<p>Cons: Harder to implement, more storage are needed to maintain the two sorted lists.</p>
+<p>Cons: It is harder to implement and more storage are needed to maintain the two sorted lists.</p>
 </li>
 </ul>
 </div>
@@ -1210,31 +1221,31 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-methods-to-support-the-view-feature-2"><a class="link" href="#aspect-methods-to-support-the-view-feature-2">3.8.2. Aspect: Methods to support the view feature</a></h4>
+<h4 id="aspect-methods-to-show-the-advice-message"><a class="link" href="#aspect-methods-to-show-the-advice-message">3.8.2. Aspect: Methods to show the advice message</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> We iterate through the entire expenditure list and select the expenditures based on filter.</p>
+<p><strong>Alternative 1 (current choice):</strong> We generate the advice message using string builder and afterwards the message will be shown to user in a pop-up window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement, there is no need for sorting functions.</p>
+<p>Pros: It is user friendly. The content of advice will be shown clearly, which is easy for user to see.</p>
 </li>
 <li>
-<p>Cons: Need to check all the expenditures in the list with time complexity O(n) which is relatively slow.</p>
+<p>Cons: It needs effort to implement a <code>PopUpString</code> class (in our cases, a self-implemented pop-up window will be easier than using the one in Java library since only a string needs to be shown) and corresponding methods for UI activating in the <code>ExpenditureGetAdviceCommand</code> class.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> We keep two expenditure lists sorted by date or category respectively.</p>
+<p><strong>Alternative 2:</strong> We show the advice message in the command result box.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster to get the expenditures, we only need to find the first and last appearance of the date or category, all expenditures between start and end will be selected.</p>
+<p>Pros: It is easy to be implemented.</p>
 </li>
 <li>
-<p>Cons: Harder to implement, more storage are needed to maintain the two sorted lists.</p>
+<p>Cons: It is not user friendly and harder for user to view in the command result box which is relatively small.</p>
 </li>
 </ul>
 </div>
@@ -3687,4 +3698,4 @@ Expected: No pop-up window will appear. Error detail is shown in the status mess
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:29:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:31:27 UTC</div></div></div></body></html>

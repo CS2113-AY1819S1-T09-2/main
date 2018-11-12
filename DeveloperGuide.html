@@ -85,8 +85,21 @@
 <li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#adding-a-task">H.2. Adding a task</a></li>
+<li><a href="#editing-a-task">H.3. Editing a task</a></li>
+<li><a href="#deleting-a-task">H.4. Deleting a task</a></li>
+<li><a href="#marking-a-task-as-completed">H.5. Marking a task as completed</a></li>
+<li><a href="#marking-a-task-as-uncompleted">H.6. Marking a task as uncompleted</a></li>
+<li><a href="#viewing-filtered-task-list">H.7. Viewing filtered task list</a></li>
+<li><a href="#sorting-task-list">H.8. Sorting task list</a></li>
+<li><a href="#adding-an-expenditure">H.9. Adding an expenditure</a></li>
+<li><a href="#editing-an-expenditure">H.10. Editing an expenditure</a></li>
+<li><a href="#deleting-an-expenditure">H.11. Deleting an expenditure</a></li>
+<li><a href="#viewing-filtered-expenditure-list">H.12. Viewing filtered expenditure list</a></li>
+<li><a href="#checking-expenditures">H.13. Checking expenditures</a></li>
+<li><a href="#obtaining-expenditure-advices">H.14. Obtaining expenditure advices</a></li>
+<li><a href="#viewing-of-daily-summary">H.15. Viewing of daily summary</a></li>
+<li><a href="#saving-data">H.16. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -3207,65 +3220,457 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample tasks and expenses.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Saving window preferences</p>
+<p>Shutdown</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Enter the <code>exit</code> command or close the application directly</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+<p>Re-launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Double-click the jar file.<br>
+Expected: Any previous changes to to-do list and/or expenditure tracker are automatically saved and will appear as per normal.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="adding-a-task"><a class="link" href="#adding-a-task">H.2. Adding a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Adding a task to the to-do list</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: No modifications are done to the sample tasks list.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>TDL_add t/Milestone 3 m/CS2113 d/02-11 p/2</code><br>
+Expected: Task is not added. Error details are shown in the status message.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>TDL_add t/Tutorial 5 m/CS2101 d/12-09 p/1</code><br>
+Expected: New task is added to the to-do list. Details of the added task is shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Other incorrect add commands to try: <code>TDL_add</code> (with any missing parameters)</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">H.3. Editing a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a task in the to-do list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Must have at least 1 task in the list shown</p>
+</li>
+<li>
+<p>Test case: <code>TDL_edit 1</code><br>
+Expected: First task shown in the list is edited with no changes to any parameters. Details of the task is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_edit 1 m/CS1231</code><br>
+Expected: First task shown in the list is edited with the new module code of <code>CS1231</code>. Details of the edited task is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_edit 0 m/CS1231</code><br>
+Expected: No task is edited. Error details are shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>TDL_edit</code>, <code>TDL_edit x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">H.4. Deleting a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a task in the to-do list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Must have at least 1 task in the list shown</p>
+</li>
+<li>
+<p>Test case: <code>TDL_delete 1</code><br>
+Expected: First task shown in the list is deleted. Details of the deleted task is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_delete 0</code><br>
+Expected: No task is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>TDL_delete</code>, <code>TDL_delete x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-task-as-completed"><a class="link" href="#marking-a-task-as-completed">H.5. Marking a task as completed</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Marking a task in the to-do list as completed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Task to be marked must have completion status of <code>uncompleted</code>. Must have at least 1 task in the list shown.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_complete 1</code><br>
+Expected: Uncompleted task in index 1 shown in the list is marked as completed. Details of the task is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_complete 0</code><br>
+Expected: No task is marked as completed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>TDL_complete</code>, <code>TDL_complete x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-task-as-uncompleted"><a class="link" href="#marking-a-task-as-uncompleted">H.6. Marking a task as uncompleted</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Marking a task in the to-do list as uncompleted</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Task to be marked must have completion status of <code>completed</code>. Must have at least 1 task in the list shown.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_uncomplete 1</code><br>
+Expected: Completed task in index 1 shown in the list is marked as uncompleted. Details of the task is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_uncomplete 0</code><br>
+Expected: No task is marked as uncompleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>TDL_uncomplete</code>, <code>TDL_uncomplete x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-filtered-task-list"><a class="link" href="#viewing-filtered-task-list">H.7. Viewing filtered task list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a filtered task list by completion status</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Should have at least 1 task of each completion statuses</p>
+</li>
+<li>
+<p>Test case: <code>TDL_view all</code><br>
+Expected: All tasks are displayed in the to-do list regardless of completion status.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_view uncompleted</code><br>
+Expected: All uncompleted tasks are displayed in the to-do list.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_view completed</code><br>
+Expected: All completed tasks are displayed in the to-do list.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>TDL_view</code>, <code>TDL_view complete</code>, <code>TDL_view uncomplete</code>, <code>TDL_view xxx</code> (where xxx is any string of words not mentioned above)<br>
+Expected: No change in the to-do list. Error detail is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-task-list"><a class="link" href="#sorting-task-list">H.8. Sorting task list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting the task list of the to-do list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Should have at least 3 tasks with different parameters</p>
+</li>
+<li>
+<p>Test case: <code>TDL_sort default</code><br>
+Expected: Tasks are now sorted alphabetically by its name.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_sort module</code><br>
+Expected: Module code of the tasks are sorted alphabetically.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_sort date</code><br>
+Expected: Tasks are now sorted by its date, where oldest date comes first.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_sort priority</code><br>
+Expected: Tasks are now sorted by its priority level, where highest priority comes first.</p>
+</li>
+<li>
+<p>Test case: <code>TDL_sort reverse</code><br>
+Expected: Tasks list shown is now in reversed order.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>TDL_sort</code>, <code>TDL_sort xxx</code> (where xxx is any string of words not mentioned above)<br>
+Expected: No change in the to-do list. Error detail is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-expenditure"><a class="link" href="#adding-an-expenditure">H.9. Adding an expenditure</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an expenditure to the expenditure tracker</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No prerequisites are needed</p>
+</li>
+<li>
+<p>Test case: <code>ET_add e/iPhone7 Plus d/25-12-2017 m/1000 c/Electronics</code><br>
+Expected: New expenditure is added to the expenditure tracker. Details of the added expenditure is shown in the status message.</p>
+</li>
+<li>
+<p>Incorrect add commands to try: <code>ET_add</code> (with any missing parameters)<br>
+Expected: Expenditure is not added. Error details are shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-expenditure"><a class="link" href="#editing-an-expenditure">H.10. Editing an expenditure</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an expenditure in the expenditure tracker</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Must have at least 1 expenditure in the list shown</p>
+</li>
+<li>
+<p>Test case: <code>ET_edit 1</code><br>
+Expected: No expenditure is edited. Error details are shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>ET_edit 1 m/10.50</code><br>
+Expected: First expenditure shown in the list is edited with the new spending of <code>10.50</code> SGD. Details of the edited expenditure is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>ET_edit 0 m/10.50</code><br>
+Expected: No expenditure is edited. Error details are shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>ET_edit</code>, <code>ET_edit x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-expenditure"><a class="link" href="#deleting-an-expenditure">H.11. Deleting an expenditure</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an expenditure in the expenditure tracker</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Must have at least 1 expenditure in the list shown</p>
+</li>
+<li>
+<p>Test case: <code>ET_delete 1</code><br>
+Expected: First expenditure shown in the list is deleted. Details of the deleted expenditure is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>ET_delete 0</code><br>
+Expected: No expenditure is deleted. Error details are shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>ET_delete</code>, <code>ET_delete x</code> (where x is larger than the list size shown)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-filtered-expenditure-list"><a class="link" href="#viewing-filtered-expenditure-list">H.12. Viewing filtered expenditure list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a filtered expenditure list by various parameters</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Should have at least 1 task</p>
+</li>
+<li>
+<p>Test case: <code>ET_view all</code><br>
+Expected: All expenditures are displayed in the expenditure tracker.</p>
+</li>
+<li>
+<p>Test case: <code>ET_view 01-01-2018</code><br>
+Expected: All expenditures on <code>01-01-2018</code> are displayed in the expenditure tracker.</p>
+</li>
+<li>
+<p>Test case: <code>ET_view Electronics</code><br>
+Expected: All expenditures are displayed in the expenditure tracker.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>ET_view</code>, <code>ET_view xxx</code> (where xxx is any string of words not mentioned in the User Guide)<br>
+Expected: No change in the expenditure tracker. Error detail is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-expenditures"><a class="link" href="#checking-expenditures">H.13. Checking expenditures</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Checking of all expenditures in a particular time frame</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No prerequisites are needed</p>
+</li>
+<li>
+<p>Test case: <code>ET_check start/01-01-2018 end/01-12-2018</code><br>
+Expected: A pop-up window with a pie-chart of all recorded expenditures in this time frame will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>ET_check start/01-01-2018 end/1-12-2018</code><br>
+Expected: No pop-up window will appear. Error detail is shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>ET_check</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="obtaining-expenditure-advices"><a class="link" href="#obtaining-expenditure-advices">H.14. Obtaining expenditure advices</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Obtaining expenditure advices based on expenditure history</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No prerequisites are needed</p>
+</li>
+<li>
+<p>Test case: <code>ET_advice m/1000 numofdays/30</code><br>
+Expected: A pop-up window with full instructions and details will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>ET_advice m/1000 numofdays/0</code><br>
+Expected: No pop-up window will appear. Error detail is shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>ET_advice</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-of-daily-summary"><a class="link" href="#viewing-of-daily-summary">H.15. Viewing of daily summary</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a daily summary of all due tasks and expenditures on a particular day</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No prerequisites are needed</p>
+</li>
+<li>
+<p>Test case: <code>check d/01-01-2018</code><br>
+Expected: A pop-up window with the summary for the day <code>01-01-2018</code> will be shown.</p>
+</li>
+<li>
+<p>Test case: <code>check d/01-1-2018</code><br>
+Expected: No pop-up window will appear. Error detail is shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>check</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">H.16. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3280,9 +3685,6 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:12:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:43:25 UTC</div></div></div></body></html>

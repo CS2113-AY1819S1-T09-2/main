@@ -948,14 +948,26 @@ We create two new predicates to either retrieve all completed tasks or all uncom
 <div class="paragraph">
 <p>Sorting tasks in the to-do list uses both <code>Logic</code> and <code>Model</code> components.
 Generally, the implementation of <code>TDL_sort date</code>, <code>TDL_sort priority</code> and <code>TDL_sort module</code> are quite similar,
-and they use different comparators. These features sort ObservableList&lt;Task&gt; and use the method sort()
-from List&lt;&gt;.</p>
+and they use different comparators which are stored in <code>SortComparator</code>.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, after getting the input from user, <code>SortCommandParser</code> split command to get the parameter
+and choose the corresponding sorting method. Then, we use <code>Collection.sort()</code> in <code>UniqueTaskList</code> to sort
+ObservableList&lt;Task&gt; versionedTodoList</p>
 </div>
 <div class="paragraph">
 <p><code>TDL_sort reverse</code> use the method <code>Collection.reverse()</code> to reverse the sequence of tasks in to-do list.</p>
 </div>
 <div class="paragraph">
 <p>To avoid the sequential order of upper case and lower case, we use <code>TaskName a &#8594; a.toString().toLowerCase()</code> transfer all upper case into lower case.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>TDL_complete</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortTaskSequenceDiagram.png" alt="SortTaskSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -965,27 +977,24 @@ from List&lt;&gt;.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong></p>
+<p><strong>Alternative 1 (current choice):</strong> write methods for each sort parameter separately</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p>Pros: easily to implement and have already gathered all comparators in <code>SortComparator</code></p>
 </li>
 <li>
-<p>Cons:</p>
+<p>Cons: hard to read and debug</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong></p>
+<p><strong>Alternative 2:</strong> In <code>Model</code> part, write only one methods and use if sentence to execute corresponding one.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
-</li>
-<li>
-<p>Cons:</p>
+<p>Pros: Easy to read and debug</p>
 </li>
 </ul>
 </div>
@@ -1028,27 +1037,27 @@ and deadline for distinguishing uncompleted tasks with different deadline.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong></p>
+<p><strong>Alternative 1 (current choice):</strong> Add related methods to <code>Task</code> class and <code>Model</code> class directly</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p>Pros: Easy to implement</p>
 </li>
 <li>
-<p>Cons:</p>
+<p>Cons: Hard to read and debug</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong></p>
+<p><strong>Alternative 2:</strong> build a new class for Deadline notification</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p>Pros: Easy to debug and increase new features like notify deadline with CLI output</p>
 </li>
 <li>
-<p>Cons:</p>
+<p>Cons: Hard to implement</p>
 </li>
 </ul>
 </div>
@@ -3246,4 +3255,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:27:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:28:31 UTC</div></div></div></body></html>

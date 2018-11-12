@@ -514,7 +514,7 @@ Gives a short summary of the expenditures made so far and provides advice on how
 <p>Pros: It is user friendly. The content of advice will be shown clearly, which is easy for user to see.</p>
 </li>
 <li>
-<p>Cons: It needs effort to implement a <code>PopUpString</code> class (in our cases, a self-implemented pop-up window will be easier than using the one in Java library since only a string needs to be shown) and corresponding methods for UI activating in the <code>ExpenditureGetAdviceCommand</code> class.</p>
+<p>Cons: It needs effort to implement a <code>PopUpString</code> class (in our cases, a self-implemented pop-up window will be easy to implement since only a string needs to be shown) and corresponding methods for UI activating in the <code>ExpenditureGetAdviceCommand</code> class.</p>
 </li>
 </ul>
 </div>
@@ -536,5 +536,54 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="pop-up-window"><a class="link" href="#pop-up-window">Pop-up window</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A <code>PopUpString</code> class was implemented to trigger the pop-up process.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:51:16 UTC</div></div></div></body></html>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>In <code>PopUpString</code> class</strong>: The <code>popup</code> method creates a new stage with a scene containing one label to hold the advice string. Afterwards, by using <code>stage.show()</code> method, a new window will appear.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-styles-of-the-pop-up-window-to-be-shown"><a class="link" href="#aspect-styles-of-the-pop-up-window-to-be-shown">Aspect: Styles of the pop-up window to be shown</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> A new normal window is shown</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The style of window is normal which provides user with necessary information.</p>
+</li>
+<li>
+<p>Cons: It needs effort to implement a <code>PopUpString</code> class.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> A dialog window is shown</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to be implemented using JOptionPane class in Java library.</p>
+</li>
+<li>
+<p>Cons: The style of window is dialog which might be a bit awkward and might mislead user to consider the content of this window as error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:24:00 UTC</div></div></div></body></html>

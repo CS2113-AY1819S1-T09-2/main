@@ -1,16 +1,16 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Wang Shining - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Something Daily</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Wang Shining - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-something-daily"><a class="link" href="#project-something-daily">PROJECT: Something Daily</a></h2>
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="overview-something-daily"><a class="link" href="#overview-something-daily">Overview: Something Daily</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Something Daily is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Something Daily is a desktop application using command-line interface. It allows user to add, delete or edit the task and expenditure. It also provides advanced features such as getting spending advice for following days and checking the tasks information and expenditure records of a particular day.</p>
+</div>
+<div class="paragraph">
+<p>Something Daily is designed to help NUS SoC students to manage the significant number of academic tasks and keep track on daily expenditures. Moreover, it helps alleviate the inconvenience caused by switching between apps for example between <code>Google Calendar</code> and <code>ExpensePoint</code> as user could manage daily stuffs such as expenditures and tasks in one application.</p>
+</div>
+<div class="paragraph">
+<p>This product was developed by a team of four, for more information about the rest developers, you may find it in the <code>About Us</code> page. Given below are my contributions to the whole project.</p>
 </div>
 </div>
 </div>
@@ -28,7 +28,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: holds the data related to Expenditure Tracker and executes the commands in the lowest level.</p>
+<p>What it does: Holds the data related to Expenditure Tracker and executes the commands in the lowest level.</p>
 </li>
 <li>
 <p>Justification: It is the most foundational and core component of Expenditure Tracker in the app.</p>
@@ -41,7 +41,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: loads and stores the expenditure data via a particular path.</p>
+<p>What it does: Loads and stores the expenditure data via a particular path.</p>
 </li>
 <li>
 <p>Justification: This component saves Expenditure Tracker&#8217;s data and hence allows user to keep track on expenditures.</p>
@@ -54,23 +54,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: displays the history expenditures in the Expenditure Tracker panel properly.</p>
+<p>What it does: Displays the history expenditures in the Expenditure Tracker panel properly.</p>
 </li>
 <li>
 <p>Justification: This design allows user to view the expenditure records.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Designed <strong>model for Calendar</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: generates the current month&#8217;s data.</p>
-</li>
-<li>
-<p>Justification: This component provides the data of current month to be displayed to user.</p>
 </li>
 </ul>
 </div>
@@ -80,23 +67,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: displays the Calendar properly.</p>
+<p>What it does: Displays the Calendar properly.</p>
 </li>
 <li>
 <p>Justification: This design gives user an overview of the whole month.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Added <strong>tests for Expenditure Tracker</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: tests whether Expenditure Tracker models work properly.</p>
-</li>
-<li>
-<p>Justification: This enhancement helps developers find out bug and logic error in model.</p>
 </li>
 </ul>
 </div>
@@ -106,7 +80,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to add expenditure to Expenditure Tracker.</p>
+<p>What it does: Allows the user to add expenditure to Expenditure Tracker.</p>
 </li>
 <li>
 <p>Justification: This feature is the key to tracking daily expenditures, where user can add expenditures to Expenditure Tracker.</p>
@@ -119,7 +93,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: shows a popup window containing a summary of expenditure history and gives advice on how to spend money in the following period.</p>
+<p>What it does: Shows a popup window containing a summary of expenditure history and gives advice on how to spend money in the following period.</p>
 </li>
 <li>
 <p>Justification: If the user has no idea on where he/she spent money and want to get some advice on managing money in the following period, this feature helps the users plan how to spend.</p>
@@ -132,7 +106,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: displays the expenditures on a particular day or of a specific category.</p>
+<p>What it does: Displays the expenditures on a particular day or of a specific category.</p>
 </li>
 <li>
 <p>Justification: Since user might not want to see all the expenditures from beginning till now, this feature improves the efficiency for user to navigate through expenditure records as user could view by a particular date or category.</p>
@@ -145,13 +119,32 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: shows a popup window containing the task information and expenditure records of a particular day.</p>
+<p>What it does: Shows a popup window containing the task information and expenditure records of a particular day.</p>
 </li>
 <li>
 <p>Justification: This feature implements the interoperability of Todo list and Expenditure Tracker as it provides user with both task information and expenditure records by referring to a specific date.</p>
 </li>
 </ul>
 </div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added a <code>PopUpString</code> class and corresponding methods to pop up a window showing a particular string.</p>
+</li>
+<li>
+<p>Designed model class for Calendar, which generates the current month&#8217;s data and provides the data to be displayed to user.</p>
+</li>
+<li>
+<p>Written test files to check whether Expenditure Tracker models work properly, which helps developers find out the bugs and logic error in models.</p>
+</li>
+<li>
+<p>Set separate path for Expenditure Tracker storage.</p>
 </li>
 </ol>
 </div>
@@ -168,7 +161,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Added partial Expenditure Tracker features description of User Guide.</p>
+<p>Added Expenditure Tracker features description to User Guide.</p>
 </li>
 <li>
 <p>Added user stories and use cases of Developer Guide.</p>
@@ -180,14 +173,24 @@
 </div>
 </li>
 <li>
+<p>Project Management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed issue board [<a href="https://github.com/CS2113-AY1819S1-T09-2/main/issues?q=is%3Aissue+is%3Aclosed">Issue board</a>]</p>
+</li>
+<li>
+<p>Pull requests reviewed [<a href="https://github.com/CS2113-AY1819S1-T09-2/main/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3ASHININGGGG">examples</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with review comments): <a href="https://github.com/CS2113-AY1819S1-T09-2/main/pulls?q=is%3Apr+is%3Aclosed">#80</a>, <a href="https://github.com/CS2113-AY1819S1-T09-2/main/pulls?q=is%3Apr+is%3Aclosed">#68</a>, <a href="https://github.com/CS2113-AY1819S1-T09-2/main/pulls?q=is%3Apr+is%3Aclosed">#23</a>, <a href="https://github.com/CS2113-AY1819S1-T09-2/main/pulls?q=is%3Apr+is%3Aclosed">#20</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com/nusCS2113-AY1819S1/forum/issues">#60</a>)</p>
+<p>Helped debug and suggest improvement for other team [<a href="https://github.com/CS2113-AY1819S1-T13-5/main/issues?q=mentions%3ASHININGGGG+is%3Aclosed">Bug report &amp; suggestions</a>]</p>
 </li>
 </ul>
 </div>
@@ -345,7 +348,7 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The user stories of Expenditure Tracker given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -514,4 +517,4 @@ Gives a short summary of the expenditures made so far and provides advice on how
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:54:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:27:36 UTC</div></div></div></body></html>

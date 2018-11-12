@@ -37,7 +37,7 @@ The project currently has over 10,000 lines of code.</p>
 <p>records all added expenses</p>
 </li>
 <li>
-<p>provides expenditure advices based on your expenses history</p>
+<p>provides expenditure advices based on user&#8217;s expenses history</p>
 </li>
 <li>
 <p>provides daily summary on all due tasks and expenses</p>
@@ -67,10 +67,10 @@ We are committed in helping students like us and we plan to make the product bet
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It is the component that holds all to-do list related data of the app in-memory.</p>
+<p>What it does: It is the component that holds all to-do list related data of the application in-memory.</p>
 </li>
 <li>
-<p>Justification: This component is a core building block of the to-do list in the app.</p>
+<p>Justification: This component is a core building block of the to-do list in the application.</p>
 </li>
 </ul>
 </div>
@@ -109,7 +109,7 @@ We are committed in helping students like us and we plan to make the product bet
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The command allows the user to view a list of tasks based on task&#8217;s status.</p>
+<p>What it does: The command allows the user to view a list of tasks based on the task&#8217;s completion status.</p>
 </li>
 <li>
 <p>Justification: This feature improves the user experience and efficiency as it helps the user in navigating through all of the tasks in the to-do list. Users can now easily separate out uncompleted tasks from completed task.</p>
@@ -174,6 +174,9 @@ We are committed in helping students like us and we plan to make the product bet
 </li>
 <li>
 <p>Updated class diagrams for model, storage and UI components in the Developer Guide</p>
+</li>
+<li>
+<p>Updated various sequence diagrams in the Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -357,6 +360,9 @@ Format: <code>TDL_complete INDEX</code></p>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
+<li>
+<p>Marking a completed task as <code>completed</code> is not allowed.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -391,6 +397,9 @@ Format: <code>TDL_uncomplete INDEX</code></p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Marking an uncompleted task as <code>uncompleted</code> is not allowed.</p>
 </li>
 </ul>
 </div>
@@ -467,7 +476,7 @@ Format: <code>check d/DATE</code></p>
 <p>The summary uses user&#8217;s data from both the to-do list and the expenditure tracker. It will be empty if no data can be retrieved.</p>
 </li>
 <li>
-<p>The command can also be executed by clicking on a particular day in the calendar GUI. [Coming v2.0]</p>
+<p>The command can also be executed by clicking on a particular day in the calendar GUI. [Coming in v2.0]</p>
 </li>
 </ul>
 </div>
@@ -661,506 +670,4 @@ We create two new predicates to either retrieve all completed tasks or all uncom
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>NUS SoC students</p>
-</li>
-<li>
-<p>Is busy and has a need to better manage his/her student life</p>
-</li>
-<li>
-<p>Has a need to manage a significant number of academic tasks</p>
-</li>
-<li>
-<p>Has a need to keep track on expenditures</p>
-</li>
-<li>
-<p>Prefer desktop applications over mobile platforms</p>
-</li>
-<li>
-<p>Prefers typing over mouse input</p>
-</li>
-<li>
-<p>Is reasonably comfortable using CLI applications</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Value proposition</strong>: To assist students in managing all of their academic work and spendings which will improve their student life</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the application</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new task to the to-do list</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit a task on the to-do list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep my tasks updated and correct</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a task on the to-do list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove any entries that I no longer need</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">archive completed tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a history of all tasks completed earlier throughout the school semester</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple modules</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag each task with a module code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify all tasks specific to a particular module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag each task with a deadline</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify all tasks that are time sensitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag each task with different levels of importance/priority</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify all tasks that requires more attention</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">filter the todo list by completion status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">obtain a list of tasks based on their completion status</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new expenditure to the expenditure tracker</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit an expenditure in the expenditure tracker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep my expenditures updated and correct</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete an expenditure in the expenditure tracker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove any entries that I typed wrongly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student who is not capable of managing expenditure</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see and check where did I spend my money and how much did I spend for each expenditure with the corresponding date</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">better understand my spending habits</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to know how much money did I spend and how much income did I get for a certain period</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the amount of spendings and income respectively by keying in the starting date and end date of a particular period</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort the todo list by module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view all tasks specific to a particular module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort the todo list by deadline</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view which task is due the earliest</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort the todo list by importance/priority</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view which tasks are more important than the other</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with tasks that may last for a long time</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">easily record and view my progress with progress bar</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete all archived completed tasks after the semester is done</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get ready for the next semester</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with difficulty in remembering all deadlines</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get notified at a certain time before deadline based on my choice</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">submit my work on time</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to know how to save my money</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">obtain advices from the Expenditure Tracker by checking the categories which I mainly spent my money on</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">control my spendings in a particular category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple projects</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a separate project window</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view all tasks specific only to projects</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student with multiple tasks to complete in a day</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">let the system automatically generate the order of tasks based on priority</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">start working on the tasks</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student who does not record their money spending regularly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">notified by the Expenditure Tracker to note down the amount of money spent on food, snacks or other categories respectively everyday</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
-</div>
-<h3 id="use-case-1-add-task" class="discrete">Use case 1: Add task</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_add</code> command and keys in the task</p>
-</li>
-<li>
-<p>To-do list shows the task entered in the list</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-2-edit-or-update-task" class="discrete">Use case 2: Edit or Update task</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_edit</code> command followed by index number</p>
-</li>
-<li>
-<p>To-do list confirms task is present in the list</p>
-</li>
-<li>
-<p>User enter relevant contents</p>
-</li>
-<li>
-<p>To-do list shows the updated task in the list</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>2a. The list is empty.
-2b. The given index is invalid.
-  2b1. To-do list shows an error message</pre>
-</div>
-</div>
-<h3 id="use-case-3-delete-task" class="discrete">Use case 3: Delete task</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_delete</code> command followed by index number</p>
-</li>
-<li>
-<p>To-do list confirms task is present and deletes the task</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>2a. The list is empty.
-2b. The given index is invalid
-  2b1. To-do list shows an error message</pre>
-</div>
-</div>
-<h3 id="use-case-4-check-tasks-for-a-module" class="discrete">Use case 4: Check tasks for a module</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_sort module</code> command</p>
-</li>
-<li>
-<p>To-do list shows a sorted list of tasks grouped by modules</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-5-check-for-urgent-tasks" class="discrete">Use case 5: Check for urgent tasks</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_sort date</code> command</p>
-</li>
-<li>
-<p>To-do list shows the all uncompleted modules sorted by deadlines, the task with latest deadline is the first task</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-6-checking-tasks-with-high-importance" class="discrete">Use case 6: Checking tasks with high importance</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_sort priority</code> command</p>
-</li>
-<li>
-<p>To-do list shows a sorted list of tasks grouped by priority level in descending order</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-7-view-all-completed-tasks" class="discrete">Use case 7: View all completed tasks</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_view completed</code> command</p>
-</li>
-<li>
-<p>To-do list shows a list of tasks that has been marked as completed</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-8-view-all-uncompleted-tasks" class="discrete">Use case 8: View all uncompleted tasks</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_view uncompleted</code> command</p>
-</li>
-<li>
-<p>To-do list shows a list of tasks that have not been marked as completed</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-9-view-all-tasks" class="discrete">Use case 9: View all tasks</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_view all</code> command</p>
-</li>
-<li>
-<p>To-do list shows a list of tasks regardless of its completion status</p>
-</li>
-</ol>
-</div>
-<h3 id="use-case-10-marking-a-task-as-completed" class="discrete">Use case 10: Marking a task as completed</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_complete</code> command followed by index number</p>
-</li>
-<li>
-<p>To-do list marks task as completed</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>2a. The list is empty.
-2b. The given index is invalid
-  2b1. To-do list shows an error message</pre>
-</div>
-</div>
-<h3 id="use-case-11-marking-a-task-as-uncompleted" class="discrete">Use case 11: Marking a task as uncompleted</h3>
-<div class="paragraph">
-<p><strong>System:</strong>
-To-do list</p>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters <code>TDL_uncomplete</code> command followed by index number</p>
-</li>
-<li>
-<p>To-do list marks task as uncompleted</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>2a. The list is empty.
-2b. The given index is invalid
-  2b1. To-do list shows an error message</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix D: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Things</strong><br>
-A to-do list mobile application</p>
-</div>
-<div class="paragraph">
-<p>Author: Ran Tian</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Clean UI that is user friendly</p>
-</li>
-<li>
-<p>Able to add deadlines for every tasks at hand</p>
-</li>
-<li>
-<p>Able to create custom tags for tagging tasks</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Not specialized for students</p>
-</li>
-<li>
-<p>Unable to sort tasks by tags</p>
-</li>
-<li>
-<p>Lack of a reminder feature</p>
-</li>
-</ol>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:22:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:54:19 UTC</div></div></div></body></html>
